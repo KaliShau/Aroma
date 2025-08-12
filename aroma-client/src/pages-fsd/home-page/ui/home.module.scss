@@ -1,0 +1,5 @@
+.header {
+  > img {
+    @apply w-full h-auto absolute top-0 left-0 -z-1 rounded-default;
+  }
+}

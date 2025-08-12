@@ -1,0 +1,40 @@
+.root {
+  @apply flex items-center;
+
+  svg {
+    @apply w-5 h-5;
+  }
+}
+
+.text {
+  @apply relative;
+
+  &::after {
+    content: '';
+    @apply absolute w-full h-0 bg-orange bottom-0 left-0 transition-all rounded-default;
+
+    &:hover {
+      @apply h-1 left-0;
+    }
+  }
+
+  &:hover {
+    @apply opacity-80 text-orange transition-colors;
+  }
+}
+
+.fill {
+  @apply font-bold text-brown bg-beige p-[10px] rounded-default h-[40px] transition-colors;
+
+  &:hover {
+    @apply bg-orange bg-opacity-90;
+  }
+}
+
+.border {
+  @apply border-2 rounded-default p-[10px] transition-colors fill-beige;
+
+  &:hover {
+    @apply border-orange;
+  }
+}

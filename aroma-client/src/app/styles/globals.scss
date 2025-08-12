@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font);
+  @apply p-[25px] bg-white min-h-screen flex flex-col text-beige w-screen;
+}
