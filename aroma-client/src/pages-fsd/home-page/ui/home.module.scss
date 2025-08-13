@@ -1,5 +1,33 @@
 .header {
-  > img {
-    @apply w-full h-auto absolute top-0 left-0 -z-1 rounded-default;
+  > div {
+    @apply inline-flex flex-col gap-[25px] mt-[10%];
+
+    > h2 {
+      @apply text-beige text-5xl font-bold tracking-wider;
+
+      > span {
+        @apply text-orange;
+      }
+    }
+
+    > p {
+      @apply font-semibold max-w-[480px];
+    }
+
+    > a {
+      @apply max-w-[189px];
+    }
+  }
+}
+
+.menu {
+  @apply text-brown mt-[23%] flex flex-col items-center h-[681px] rounded-default;
+
+  background-image: url('../../../shared/assets/images/orange-line.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  > h2 {
+    @apply text-5xl font-bold uppercase;
   }
 }

@@ -1,5 +1,5 @@
 .root {
-  @apply flex items-center;
+  @apply flex items-center gap-[10px];
 
   svg {
     @apply w-5 h-5;
@@ -36,5 +36,9 @@
 
   &:hover {
     @apply border-orange;
+
+    path {
+      @apply fill-orange;
+    }
   }
 }

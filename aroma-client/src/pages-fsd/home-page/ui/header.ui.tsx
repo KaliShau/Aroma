@@ -1,19 +1,28 @@
-import Image from 'next/image'
-
 import styles from './home.module.scss'
 import bg from '@/shared/assets/images/header.png'
+import { HeaderImage } from '@/shared/ui/header-image/header-image.ui'
+import { Link } from '@/shared/ui/link/link.ui'
 
-export const Header = () => {
+import Circle from '@/shared/assets/icons/circle.svg'
+import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
+import { EnumModelLink } from '@/shared/ui/link/link.type'
+
+export const HeaderHome = () => {
   return (
     <div className={styles.header}>
-      <Image
-        draggable='false'
-        alt='Background home image'
-        src={bg.src}
-        width='1456'
-        height='1'
-      />
-      header
+      <HeaderImage image={bg} />
+      <div>
+        <h2>
+          LIFE BEGINS <br /> AFTER <span>FLAVOUR</span>
+        </h2>
+        <p>
+          This is a coffee universe where the best espresso ideas are born, and
+          every sip is a new reason for inspiration and connection.
+        </p>
+        <Link href={PUBLIC_ROUTES.menu()} model={EnumModelLink.fill}>
+          MAKE A ORDER <Circle />
+        </Link>
+      </div>
     </div>
   )
 }

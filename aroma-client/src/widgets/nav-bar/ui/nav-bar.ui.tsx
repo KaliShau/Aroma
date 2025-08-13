@@ -1,10 +1,6 @@
 import { Link } from '@/shared/ui/link/link.ui'
 import styles from './nav-bar.module.scss'
 import { NAV_HOME, NAV_MENU, NAV_RIGHT_BAR } from '../data/nav-bar.data'
-import { EnumModelLink } from '@/shared/ui/link/link.type'
-
-import circle from '@/shared/assets/icons/circle.svg'
-import Image from 'next/image'
 
 export const NavBar = () => {
   return (
@@ -18,9 +14,11 @@ export const NavBar = () => {
 
 const Logo = () => {
   return (
-    <Link {...NAV_HOME} className={styles.logo}>
-      {NAV_HOME.children}
-    </Link>
+    <h1>
+      <Link {...NAV_HOME} className={styles.logo}>
+        {NAV_HOME.children}
+      </Link>
+    </h1>
   )
 }
 
@@ -39,8 +37,8 @@ const Links = () => {
 const RightBar = () => {
   return (
     <div className={styles.right}>
-      {NAV_RIGHT_BAR.map(item => (
-        <Link key={item.href} {...item}>
+      {NAV_RIGHT_BAR.map((item, i) => (
+        <Link key={i} {...item}>
           {item.children}
         </Link>
       ))}

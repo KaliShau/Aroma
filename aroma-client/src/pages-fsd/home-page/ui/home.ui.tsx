@@ -1,11 +1,12 @@
-import { Header } from './header.ui'
+import { HeaderHome } from './header.ui'
 import styles from './home.module.scss'
+import { MenuHome } from './menu.ui'
 
 export const Home = () => {
   return (
     <div className={styles.root}>
-      <Header />
-      data
+      <HeaderHome />
+      <MenuHome />
     </div>
   )
 }

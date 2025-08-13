@@ -1,0 +1,23 @@
+.root {
+  @apply text-beige font-bold gap-2 flex flex-col items-center transition-colors rounded-default;
+
+  > h3 {
+    @apply text-2xl uppercase text-center;
+  }
+
+  > p {
+    @apply max-w-[267px];
+  }
+
+  > span {
+    @apply text-center;
+  }
+
+  > img {
+    @apply bg-white bg-opacity-40 rounded-default;
+  }
+
+  &:hover {
+    @apply bg-brown bg-opacity-20;
+  }
+}

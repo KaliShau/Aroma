@@ -1,0 +1,27 @@
+.root {
+  @apply flex justify-center;
+}
+
+.error {
+  @apply mt-[140px] p-[25px] bg-white bg-opacity-40 inline-flex flex-col rounded-default text-brown font-bold gap-[20px] justify-center;
+
+  > h2 {
+    @apply text-5xl text-center;
+
+    > span {
+      @apply text-orange;
+    }
+  }
+
+  > p {
+    @apply text-sm tracking-wider;
+  }
+
+  > button {
+    @apply flex justify-center gap-[10px];
+
+    svg {
+      @apply w-[30px];
+    }
+  }
+}

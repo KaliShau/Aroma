@@ -5,7 +5,9 @@ export const PUBLIC_ROUTES = {
 
   home: () => PUBLIC_ROUTES.root('/'),
 
-  menu: () => PUBLIC_ROUTES.root('/home'),
+  menu: () => PUBLIC_ROUTES.root('/menu'),
+  coffee: (id: string) => PUBLIC_ROUTES.root(`/menu/${id}`),
+
   aboutUs: () => PUBLIC_ROUTES.root('/about-us'),
   contact: () => PUBLIC_ROUTES.root('/contact'),
 
