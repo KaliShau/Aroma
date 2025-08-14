@@ -1,9 +1,11 @@
-import { FC } from 'react'
-import { TypeCoffee } from '../../model/coffee.type'
 import Image from 'next/image'
-import styles from './coffee-card.module.scss'
 import Link from 'next/link'
+import { FC } from 'react'
+
 import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
+
+import { TypeCoffee } from '../../model/coffee.type'
+import styles from './coffee-card.module.scss'
 
 type CoffeeCart = {
   coffee: TypeCoffee

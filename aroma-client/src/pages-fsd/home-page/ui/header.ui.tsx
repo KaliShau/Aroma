@@ -1,11 +1,11 @@
-import styles from './home.module.scss'
+import Circle from '@/shared/assets/icons/circle.svg'
 import bg from '@/shared/assets/images/header.png'
+import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
 import { HeaderImage } from '@/shared/ui/header-image/header-image.ui'
+import { EnumModelLink } from '@/shared/ui/link/link.type'
 import { Link } from '@/shared/ui/link/link.ui'
 
-import Circle from '@/shared/assets/icons/circle.svg'
-import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
-import { EnumModelLink } from '@/shared/ui/link/link.type'
+import styles from './home.module.scss'
 
 export const HeaderHome = () => {
   return (

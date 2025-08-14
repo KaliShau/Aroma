@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import styles from './header-image.module.scss'
 import { TypeHeaderImage } from './header-image.type'
 

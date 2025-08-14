@@ -1,5 +1,5 @@
 .root {
-  @apply text-beige font-bold gap-2 flex flex-col items-center transition-colors rounded-default;
+  @apply text-beige font-bold gap-2 flex flex-col items-center transition-all rounded-default;
 
   > h3 {
     @apply text-2xl uppercase text-center;
@@ -18,6 +18,6 @@
   }
 
   &:hover {
-    @apply bg-brown bg-opacity-20;
+    @apply scale-110;
   }
 }

@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+
 import { COLOR } from './src/shared/constants/color.constant'
 
 export default {

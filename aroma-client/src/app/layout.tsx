@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
-import './styles/globals.scss'
 import { ReactNode } from 'react'
-import { SITE_DESCRIPTION, SITE_TITLE } from '@/shared/constants/seo.constant'
+
 import { Layout } from '@/widgets/layout'
+
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/shared/constants/seo.constant'
+
+import './styles/globals.scss'
 
 const font = Montserrat({
   variable: '--font',

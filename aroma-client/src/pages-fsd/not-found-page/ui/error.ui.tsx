@@ -1,11 +1,12 @@
 'use client'
 
-import { Link } from '@/shared/ui/link/link.ui'
-import styles from './not-found.module.scss'
+import { useRouter } from 'next/navigation'
 
 import Arrows from '@/shared/assets/icons/arrows.svg'
 import { EnumModelLink } from '@/shared/ui/link/link.type'
-import { useRouter } from 'next/navigation'
+import { Link } from '@/shared/ui/link/link.ui'
+
+import styles from './not-found.module.scss'
 
 export const ErrorNotFound = () => {
   const router = useRouter()

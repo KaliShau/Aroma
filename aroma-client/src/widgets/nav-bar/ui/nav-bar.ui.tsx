@@ -1,6 +1,7 @@
 import { Link } from '@/shared/ui/link/link.ui'
-import styles from './nav-bar.module.scss'
+
 import { NAV_HOME, NAV_MENU, NAV_RIGHT_BAR } from '../data/nav-bar.data'
+import styles from './nav-bar.module.scss'
 
 export const NavBar = () => {
   return (

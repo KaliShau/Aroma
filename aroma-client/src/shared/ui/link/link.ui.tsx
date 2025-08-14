@@ -1,7 +1,9 @@
-import styles from './link.module.scss'
 import LinkNext from 'next/link'
-import { EnumModelLink, TypeLink } from './link.type'
+
 import { cn } from '@/shared/lib/cn'
+
+import styles from './link.module.scss'
+import { EnumModelLink, TypeLink } from './link.type'
 
 export const Link = ({
   children,

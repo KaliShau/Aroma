@@ -1,0 +1,107 @@
+.menu {
+  @apply text-brown mt-[23%] flex flex-col items-center h-[681px] rounded-default relative;
+
+  background-image: url('../../../shared/assets/images/orange-line.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  > h2 {
+    @apply text-5xl font-bold uppercase;
+  }
+
+  > div {
+    @apply flex gap-[45px] mt-[27px] relative;
+
+    > a {
+      &:first-child {
+        @apply translate-y-[30px];
+      }
+
+      &:last-child {
+        @apply translate-y-[30px];
+      }
+    }
+  }
+
+  > a {
+    @apply w-[267px] flex justify-center mt-[30px];
+
+    &:hover {
+      @apply bg-brown text-orange;
+
+      path {
+        @apply fill-orange;
+      }
+    }
+  }
+}
+
+.left_arrow {
+  @apply absolute left-2 top-80 transition-all z-1;
+
+  > svg {
+    @apply w-[70px] h-[88px] rotate-180 !important;
+  }
+
+  &:hover {
+    @apply scale-110;
+  }
+}
+
+.right_arrow {
+  @apply absolute right-2 top-80 transition-all z-1;
+
+  > svg {
+    @apply w-[70px] h-[88px] !important;
+  }
+
+  &:hover {
+    @apply scale-110;
+  }
+}
+
+.slide_next {
+  animation: slideNext 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.slide_prev {
+  animation: slidePrev 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes slideNext {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) scale(0.9);
+    opacity: 0;
+  }
+  51% {
+    transform: translateX(50%) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slidePrev {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(50%) scale(0.9);
+    opacity: 0;
+  }
+  51% {
+    transform: translateX(-50%) scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}

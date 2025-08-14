@@ -4,5 +4,15 @@
 
 body {
   font-family: var(--font);
-  @apply p-[25px] bg-white min-h-screen flex flex-col text-beige w-screen;
+  @apply p-[25px] bg-white min-h-screen flex flex-col text-beige;
+}
+
+body::-webkit-scrollbar {
+  @apply w-2;
+}
+body::-webkit-scrollbar-track {
+  @apply bg-white;
+}
+body::-webkit-scrollbar-thumb {
+  @apply bg-brown rounded-default;
 }

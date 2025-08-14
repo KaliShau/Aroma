@@ -1,5 +1,5 @@
 .root {
-  @apply bg-white bg-opacity-15 rounded-default flex justify-between p-[5px] items-center;
+  @apply bg-white bg-opacity-15 rounded-default flex justify-between p-[5px] items-center sticky top-[25px] z-1;
 }
 
 .logo {

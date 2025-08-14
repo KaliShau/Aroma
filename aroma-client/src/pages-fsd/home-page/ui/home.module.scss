@@ -20,14 +20,22 @@
   }
 }
 
-.menu {
-  @apply text-brown mt-[23%] flex flex-col items-center h-[681px] rounded-default;
+.coffee_house {
+  @apply pt-[1vw] flex justify-between h-full;
 
-  background-image: url('../../../shared/assets/images/orange-line.png');
-  background-repeat: no-repeat;
-  background-position: bottom;
+  > div {
+    @apply bg-brown rounded-default py-10 px-14 max-w-[654px] flex flex-col gap-8;
 
-  > h2 {
-    @apply text-5xl font-bold uppercase;
+    > h3 {
+      @apply font-bold text-4xl;
+    }
+
+    > p {
+      @apply font-semibold;
+    }
+  }
+
+  > img {
+    @apply rounded-default;
   }
 }
