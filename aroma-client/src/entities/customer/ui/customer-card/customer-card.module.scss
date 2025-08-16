@@ -1,0 +1,19 @@
+.root {
+  @apply bg-white inline-flex p-[50px] flex-col rounded-default text-brown gap-[30px] transition-all;
+
+  > p {
+    @apply max-w-[300px] font-bold;
+  }
+
+  &:hover {
+    @apply scale-110;
+  }
+}
+
+.rating {
+  @apply font-bold flex items-center justify-between;
+
+  > div {
+    @apply flex;
+  }
+}

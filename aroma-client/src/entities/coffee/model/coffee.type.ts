@@ -2,6 +2,7 @@ export type TypeCoffee = {
   id: string
   createdAt: Date
   updatedAt: Date
+
   name: string
   slug: string
   description: string

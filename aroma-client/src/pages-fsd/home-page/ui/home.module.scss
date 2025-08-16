@@ -39,3 +39,23 @@
     @apply rounded-default;
   }
 }
+
+.customers {
+  @apply justify-center items-center flex flex-col text-brown pt-[30px] gap-[30px];
+
+  > div > a {
+    @apply m-[20px];
+  }
+
+  > h2 {
+    @apply text-5xl font-bold text-center;
+  }
+
+  > p {
+    @apply font-semibold max-w-[610px] text-center;
+  }
+
+  > a {
+    @apply bg-white;
+  }
+}

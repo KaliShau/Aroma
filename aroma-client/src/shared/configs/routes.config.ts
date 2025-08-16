@@ -6,10 +6,13 @@ export const PUBLIC_ROUTES = {
   home: () => PUBLIC_ROUTES.root('/'),
 
   menu: () => PUBLIC_ROUTES.root('/menu'),
-  coffee: (id: string) => PUBLIC_ROUTES.root(`/menu/${id}`),
+  coffee: (slug: string) => PUBLIC_ROUTES.root(`/menu/${slug}`),
 
   aboutUs: () => PUBLIC_ROUTES.root('/about-us'),
   contact: () => PUBLIC_ROUTES.root('/contact'),
 
-  cart: () => PUBLIC_ROUTES.root('/cart')
+  cart: () => PUBLIC_ROUTES.root('/cart'),
+
+  customers: () => PUBLIC_ROUTES.root('/customers'),
+  customer: (id: string) => PUBLIC_ROUTES.root(`/customers/${id}`)
 }

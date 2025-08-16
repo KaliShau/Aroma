@@ -1,8 +1,10 @@
+import { Footer } from '@/widgets/footer'
+
 import { CoffeeHouseHome } from './coffee-house.ui'
 import { HeaderHome } from './header.ui'
 import styles from './home.module.scss'
 import { MenuHome } from './menu.ui'
-import { OurCustomers } from './our-custoners.ui'
+import { OurCustomers } from './our-customers.ui'
 
 export const Home = () => {
   return (
@@ -11,6 +13,7 @@ export const Home = () => {
       <MenuHome />
       <CoffeeHouseHome />
       <OurCustomers />
+      <Footer />
     </div>
   )
 }

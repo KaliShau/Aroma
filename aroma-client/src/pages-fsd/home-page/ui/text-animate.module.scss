@@ -1,0 +1,76 @@
+.typewriter {
+  position: relative;
+  display: inline-block;
+}
+
+/* Первая строка ("LIFE BEGINS") */
+.typewriter::before {
+  content: 'LIFE BEGINS';
+  @apply border-r-orange absolute left-0 top-0 w-0 whitespace-nowrap overflow-hidden border-r-2;
+  animation:
+    line1 8s steps(20, end) infinite,
+    blink-caret 0.75s step-end infinite;
+}
+
+/* Вторая строка ("AFTER FLAVOUR") */
+.typewriter::after {
+  content: 'AFTER FLAVOUR';
+  @apply border-r-orange absolute left-0 top-14 w-0 whitespace-nowrap overflow-hidden border-r-2;
+  animation:
+    line2 8s steps(20, end) infinite,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes line1 {
+  0%,
+  100% {
+    width: 0;
+  }
+  20% {
+    width: 11ch;
+  }
+  60% {
+    width: 11ch;
+  }
+  80% {
+    width: 0;
+  }
+}
+
+@keyframes line2 {
+  0%,
+  40% {
+    width: 0;
+  }
+  60% {
+    width: 14ch;
+  }
+  80% {
+    width: 14ch;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    @apply border-transparent;
+  }
+  50% {
+    @apply border-orange;
+  }
+}
+
+.line1,
+.line2 {
+  @apply inline-block overflow-hidden whitespace-nowrap;
+}
+
+.line1 {
+  animation: line1 8s infinite steps(20);
+}
+.line2 {
+  animation: line2 8s infinite steps(20);
+}

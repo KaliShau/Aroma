@@ -1,0 +1,39 @@
+.root {
+  @apply flex flex-col bg-brown mt-[2vw] relative pt-[25px] gap-[60px];
+
+  &::after {
+    content: '';
+    @apply absolute w-full  -left-6 -bottom-6  bg-brown -z-1 rounded-b-default;
+    height: 110%;
+  }
+
+  &::before {
+    content: '';
+    @apply absolute w-full  -right-6 -bottom-6  bg-brown -z-1 rounded-b-default;
+    height: 110%;
+  }
+
+  > span {
+    @apply font-semibold text-xs;
+  }
+
+  h2 {
+    @apply font-bold text-5xl;
+
+    > span {
+      @apply text-orange;
+    }
+  }
+
+  > div {
+    @apply flex flex-col gap-[10px];
+
+    > div {
+      @apply max-h-[160px] flex flex-col flex-wrap max-w-[467px] font-bold text-xl;
+
+      p {
+        @apply font-medium text-base;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.root {
+  @apply flex font-bold items-center gap-[10px];
+
+  > img,
+  span {
+    @apply rounded-default w-10 h-10 flex justify-center items-center uppercase outline  outline-brown object-cover bg-cover;
+  }
+}

@@ -6,14 +6,19 @@ import { EnumModelLink } from '@/shared/ui/link/link.type'
 import { Link } from '@/shared/ui/link/link.ui'
 
 import styles from './home.module.scss'
+import animate from './text-animate.module.scss'
 
 export const HeaderHome = () => {
   return (
     <div className={styles.header}>
       <HeaderImage image={bg} />
       <div>
-        <h2>
-          LIFE BEGINS <br /> AFTER <span>FLAVOUR</span>
+        <h2 className={animate.typewriter}>
+          <span className={animate.line1}></span>
+          <br />
+          <span className={animate.line2}>
+            <span className={animate.highlight}></span>
+          </span>
         </h2>
         <p>
           This is a coffee universe where the best espresso ideas are born, and
