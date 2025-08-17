@@ -1,5 +1,5 @@
 .root {
-  @apply bg-white bg-opacity-15 rounded-default flex justify-between p-[5px] items-center sticky top-[25px] z-1;
+  @apply bg-white bg-opacity-15 rounded-default flex justify-between p-[5px] items-center sticky top-[25px] z-2 shadow-lg;
 }
 
 .logo {
@@ -19,7 +19,7 @@
 }
 
 .right {
-  @apply flex gap-[10px];
+  @apply flex gap-[10px] relative;
   > a {
     @apply flex gap-[10px];
   }

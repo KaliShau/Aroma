@@ -14,5 +14,5 @@ export type TypeLink = {
   href?: Url
   isButton?: boolean
 } & Omit<LinkProps, 'href'> &
-  AnchorHTMLAttributes<HTMLAnchorElement> &
-  ButtonHTMLAttributes<HTMLButtonElement>
+  (AnchorHTMLAttributes<HTMLAnchorElement> &
+    ButtonHTMLAttributes<HTMLButtonElement>)

@@ -24,7 +24,7 @@
 }
 
 .fill {
-  @apply font-bold text-brown bg-beige p-[10px] rounded-default h-[40px] transition-colors;
+  @apply font-bold text-brown bg-beige p-[10px] rounded-default h-[40px] transition-colors shadow-lg;
 
   &:hover {
     @apply bg-orange bg-opacity-90;
@@ -32,7 +32,7 @@
 }
 
 .border {
-  @apply border-2 rounded-default p-[10px] transition-colors fill-beige;
+  @apply border-2 rounded-default p-[10px] transition-colors fill-beige shadow-lg;
 
   &:hover {
     @apply border-orange;

@@ -1,0 +1,19 @@
+.root {
+  @apply flex flex-col pt-[6%];
+}
+
+.sidebar {
+  @apply flex;
+
+  > aside {
+    @apply bg-white p-[25px] rounded-default gap-[10px] flex flex-col h-fit;
+
+    > h3 {
+      @apply font-bold text-2xl text-brown;
+    }
+
+    > a {
+      @apply shadow-none w-[306px] bg-brown text-beige;
+    }
+  }
+}

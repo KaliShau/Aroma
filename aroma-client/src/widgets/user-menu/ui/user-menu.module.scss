@@ -1,0 +1,15 @@
+.root {
+  @apply absolute right-0 top-14 rounded-default bg-beige text-brown p-[25px] hidden flex-col gap-[10px] shadow-lg;
+
+  > h4 {
+    @apply font-semibold text-xl text-orange;
+  }
+
+  > a {
+    @apply w-[277px] bg-white shadow-none;
+  }
+}
+
+.show {
+  @apply flex;
+}

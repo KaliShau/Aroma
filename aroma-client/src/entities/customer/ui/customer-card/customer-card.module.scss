@@ -1,5 +1,5 @@
 .root {
-  @apply bg-white inline-flex p-[50px] flex-col rounded-default text-brown gap-[30px] transition-all;
+  @apply bg-white inline-flex p-[50px] flex-col rounded-default text-brown gap-[30px] transition-all shadow-lg;
 
   > p {
     @apply max-w-[300px] font-bold;

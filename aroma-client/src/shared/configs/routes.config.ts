@@ -5,6 +5,8 @@ export const PUBLIC_ROUTES = {
 
   home: () => PUBLIC_ROUTES.root('/'),
 
+  signIn: () => PUBLIC_ROUTES.root('/sign-in'),
+
   menu: () => PUBLIC_ROUTES.root('/menu'),
   coffee: (slug: string) => PUBLIC_ROUTES.root(`/menu/${slug}`),
 
@@ -14,5 +16,13 @@ export const PUBLIC_ROUTES = {
   cart: () => PUBLIC_ROUTES.root('/cart'),
 
   customers: () => PUBLIC_ROUTES.root('/customers'),
-  customer: (id: string) => PUBLIC_ROUTES.root(`/customers/${id}`)
+  customer: (id: string) => PUBLIC_ROUTES.root(`/customers/${id}`),
+
+  settingsAppearance: () => PUBLIC_ROUTES.root(`/settings/appearance`)
+}
+
+export const PRIVATE_ROUTES = {
+  root: (url: string = '') => `${url ? url : ''}`,
+
+  signOut: () => PUBLIC_ROUTES.root(`/sign-out`)
 }
