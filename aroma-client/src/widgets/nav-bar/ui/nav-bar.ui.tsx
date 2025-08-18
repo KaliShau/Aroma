@@ -1,10 +1,14 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
+
+import { RootState } from '@/app/store/store'
 
 import { UserMenu } from '@/widgets/user-menu'
 
 import User from '@/shared/assets/icons/user.svg'
+import { cn } from '@/shared/lib/cn'
 import { EnumModelLink } from '@/shared/ui/link/link.type'
 import { Link } from '@/shared/ui/link/link.ui'
 
@@ -12,8 +16,17 @@ import { NAV_HOME, NAV_MENU, NAV_RIGHT_BAR } from '../data/nav-bar.data'
 import styles from './nav-bar.module.scss'
 
 export const NavBar = () => {
+  const { isDynamicNavigationBar, isTransparentNavigationBar } = useSelector(
+    (state: RootState) => state.appearance
+  )
+
   return (
-    <nav className={styles.root}>
+    <nav
+      className={cn(styles.root, {
+        [styles.stickyBar]: isDynamicNavigationBar,
+        [styles.bgColor]: isTransparentNavigationBar
+      })}
+    >
       <Logo />
       <Links />
       <RightBar />

@@ -18,11 +18,11 @@ export const SettingsLayout: FC<TypeSettingsLayout> = ({ children }) => {
   return (
     <div className={styles.root}>
       <HeaderImage image={bg} />
-      <div className={styles.sidebar}>
+      <div className={styles.main}>
         <aside>
           <h3>Settings</h3>
           {SETTINGS_LAYOUT_MENU.map(item => (
-            <Link href={item.href} model={EnumModelLink.fill}>
+            <Link href={item.href} key={item.href} model={EnumModelLink.fill}>
               {item.children}
             </Link>
           ))}

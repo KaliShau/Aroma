@@ -1,5 +1,5 @@
 .root {
-  @apply bg-white bg-opacity-15 rounded-default flex justify-between p-[5px] items-center sticky top-[25px] z-2 shadow-lg;
+  @apply bg-brown rounded-default flex justify-between p-[5px] items-center top-[25px] z-2 shadow-lg;
 }
 
 .logo {
@@ -23,4 +23,12 @@
   > a {
     @apply flex gap-[10px];
   }
+}
+
+.stickyBar {
+  @apply sticky;
+}
+
+.bgColor {
+  @apply bg-white bg-opacity-15;
 }

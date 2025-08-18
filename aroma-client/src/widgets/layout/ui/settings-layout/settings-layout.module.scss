@@ -2,8 +2,8 @@
   @apply flex flex-col pt-[6%];
 }
 
-.sidebar {
-  @apply flex;
+.main {
+  @apply flex gap-[30px] w-full;
 
   > aside {
     @apply bg-white p-[25px] rounded-default gap-[10px] flex flex-col h-fit;

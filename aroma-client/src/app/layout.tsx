@@ -6,6 +6,7 @@ import { Layout } from '@/widgets/layout'
 
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/shared/constants/seo.constant'
 
+import { MainProvider } from './providers/main-provider'
 import './styles/globals.scss'
 
 const font = Montserrat({
@@ -47,7 +48,9 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         <meta name='theme-color' content='#ffffff' />
       </head>
       <body className={font.variable}>
-        <Layout>{children}</Layout>
+        <MainProvider>
+          <Layout>{children}</Layout>
+        </MainProvider>
       </body>
     </html>
   )

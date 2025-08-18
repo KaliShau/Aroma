@@ -1,0 +1,51 @@
+.switch {
+  @apply text-brown bg-white font-bold p-[25px] rounded-default w-full flex justify-between items-center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    @apply scale-[1.01];
+    h6 {
+      @apply whitespace-normal;
+    }
+  }
+
+  h6 {
+    @apply items-center max-w-[750px] overflow-ellipsis overflow-hidden whitespace-nowrap;
+    transition:
+      max-width 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .switchLabel {
+    @apply relative min-w-[72px] h-[30px] inline-block;
+  }
+
+  .input {
+    @apply opacity-0 w-0 h-0;
+
+    &:checked + .slider {
+      @apply bg-orange;
+
+      &::before {
+        @apply transform translate-x-[42px] bg-beige;
+      }
+    }
+  }
+
+  .slider {
+    @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-brown transition-all;
+
+    &::before {
+      content: '';
+      @apply absolute h-[20px] w-[20px] left-[5px] bottom-[5px] bg-beige transition-all;
+    }
+
+    &.round {
+      @apply rounded-default;
+
+      &::before {
+        @apply rounded-[50%];
+      }
+    }
+  }
+}
