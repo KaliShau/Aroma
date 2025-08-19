@@ -1,0 +1,23 @@
+.layout {
+  @apply p-[25px] bg-beige flex-grow h-auto max-w-[1390px] w-full mx-auto rounded-default relative z-0;
+}
+
+.root {
+  @apply flex mt-[217px] p-[25px] mx-auto w-fit bg-white bg-opacity-40 flex-col rounded-default text-brown font-bold gap-[50px];
+
+  > div:first-child {
+    @apply text-center flex flex-col gap-[10px];
+
+    > p {
+      @apply text-sm font-bold;
+    }
+
+    > h2 {
+      @apply text-5xl text-center;
+
+      > span {
+        @apply text-orange;
+      }
+    }
+  }
+}

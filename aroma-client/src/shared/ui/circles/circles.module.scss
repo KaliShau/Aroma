@@ -1,0 +1,55 @@
+.root {
+  @apply flex gap-[20px] justify-center;
+
+  > span {
+    @apply bg-orange w-[40px] h-[40px] rounded-[50%];
+
+    &:first-child {
+      animation: circle1 1s ease-in-out infinite;
+    }
+
+    &:nth-child(2) {
+      animation: circle2 1s ease-in-out infinite;
+    }
+
+    &:last-child {
+      animation: circle3 1s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes circle1 {
+  0% {
+    @apply translate-y-0;
+  }
+  50% {
+    @apply -translate-y-10;
+  }
+  100% {
+    @apply translate-y-0;
+  }
+}
+
+@keyframes circle2 {
+  10% {
+    @apply translate-y-0;
+  }
+  60% {
+    @apply -translate-y-10;
+  }
+  110% {
+    @apply translate-y-0;
+  }
+}
+
+@keyframes circle3 {
+  20% {
+    @apply translate-y-0;
+  }
+  70% {
+    @apply -translate-y-10;
+  }
+  120% {
+    @apply translate-y-0;
+  }
+}
