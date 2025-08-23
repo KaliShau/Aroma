@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  username String
+  email String @unique
+
+  firstName String? @map("first_name")
+  lastName String? @map("last_name")
+
+  phone String?
+  avatarUrl String? @map("avatar_url")
+
+  role EnumUserRole
+
+  verification Verification?
+
+  @@map("user")
+}
+
+enum EnumUserRole {
+  user
+  admin
+}
+
+model Verification {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  code Int
+  expiresAt DateTime? @map("expires_at") 
+
+  userId String  @unique
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("verification")
+}

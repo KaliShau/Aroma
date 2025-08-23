@@ -18,7 +18,4 @@ export type TypeUser = {
   avatarUrl?: string
 
   role: EnumUserRole
-
-  // optCode: string
-  // otpExpiresAt: Date
 }
