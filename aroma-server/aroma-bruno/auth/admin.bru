@@ -1,0 +1,15 @@
+meta {
+  name: admin
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{api}}/auth/admin
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

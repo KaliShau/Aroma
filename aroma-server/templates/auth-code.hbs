@@ -1,0 +1,102 @@
+<html lang='ru'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Код авторизации Aroma</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fffae5;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+      .email-header {
+        background-color: #cf975e;
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+      .email-body {
+        padding: 25px;
+        color: #654c44;
+        line-height: 1.6;
+      }
+      .code-wrapper {
+        background-color: #ecd9c4;
+        padding: 25px;
+        text-align: center;
+        margin: 25px 0;
+        border-radius: 15px;
+      }
+      .auth-code {
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 8px;
+        color: #cf975e;
+        padding: 15px;
+        background: white;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 10px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .ignore-label {
+        font-size: 14px;
+        opacity: 0.9;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+        margin-top: 20px;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 12px;
+        color: #999;
+        background-color: #f9f9f9;
+      }
+      .cache-buster {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='email-container'>
+      <div class='email-header'>
+        <h1>Aroma</h1>
+      </div>
+
+      <div class='email-body'>
+        <h2>Здравствуйте!</h2>
+        <p>Используйте этот код для входа в систему Aroma:</p>
+
+        <div class='code-wrapper'>
+          <div class='auth-code'>{{code}}</div>
+        </div>
+
+        <p>Этот код действителен в течение 15 минут.</p>
+
+        <p class='ignore-label'>
+          Если вы не запрашивали этот код, пожалуйста, проигнорируйте это
+          письмо.
+        </p>
+      </div>
+
+      <div class='footer'>
+        <p>&copy; 2025 Aroma. Все права защищены.</p>
+        <p>Это письмо было отправлено автоматически, пожалуйста, не отвечайте на
+          него.</p>
+        <div class='cache-buster'>v=20231106_2</div>
+      </div>
+    </div>
+
+  </body>
+</html>

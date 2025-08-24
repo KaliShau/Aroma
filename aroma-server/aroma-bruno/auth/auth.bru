@@ -1,0 +1,22 @@
+meta {
+  name: auth
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{api}}/auth
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "code": "P4H5S8",
+    "email": "fa6248122@gmail.com"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

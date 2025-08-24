@@ -1,0 +1,21 @@
+meta {
+  name: generated-code
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{api}}/auth/generate-code
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "fa6248122@gmail.com"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

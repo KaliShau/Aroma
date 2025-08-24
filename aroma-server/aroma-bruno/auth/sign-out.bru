@@ -1,0 +1,15 @@
+meta {
+  name: sign-out
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{api}}/auth/sign-out
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
