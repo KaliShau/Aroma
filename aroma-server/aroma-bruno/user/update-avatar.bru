@@ -1,0 +1,21 @@
+meta {
+  name: update-avatar
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{api}}/user/update-avatar
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "avatarUrl": "/uploads/avatars/default.jpg"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,24 @@
+meta {
+  name: update-profile
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{api}}/user/update-profile
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username": "KaliShau",
+    "firstName": "Kali",
+    "lastName": "Shau",
+    "phone": "6543435677345"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

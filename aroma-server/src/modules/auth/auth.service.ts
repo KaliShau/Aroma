@@ -55,13 +55,30 @@ export class AuthService {
     return { user, ...tokens }
   }
 
+  async refresh(refreshToken: string) {
+    if (!refreshToken)
+      throw new UnauthorizedException('Refresh token not found!')
+
+    const valid = await this.jwtService.decode(refreshToken)
+
+    if (!valid) throw new UnauthorizedException('Invalid refresh token')
+
+    const user = await this.userService.getById(valid.sub)
+
+    if (!user) throw new UnauthorizedException('Invalid refresh token')
+
+    const tokens = await this.generateTokens(user.id)
+
+    return { ...tokens }
+  }
+
   /////////////////
 
   private async generateTokens(id: string) {
     const accessToken = await this.jwtService.signAsync(
       { sub: id },
       {
-        expiresIn: '1d',
+        expiresIn: '1h',
       }
     )
 

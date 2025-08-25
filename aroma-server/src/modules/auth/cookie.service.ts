@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { Response } from 'express'
+import { Request, Response } from 'express'
 
 @Injectable()
 export class CookieService {
@@ -16,5 +16,9 @@ export class CookieService {
     res.clearCookie(this.REFRESH_TOKEN, {
       httpOnly: true,
     })
+  }
+
+  getCookie(req: Request): string {
+    return req.cookies[this.REFRESH_TOKEN]
   }
 }

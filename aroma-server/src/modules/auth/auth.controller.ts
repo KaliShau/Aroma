@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Post,
+  Req,
   Res,
   UsePipes,
   ValidationPipe,
@@ -10,7 +11,7 @@ import {
 import { AuthService } from './auth.service'
 import { EmailAuthDto, SendCodeDto } from './dto/auth.dto'
 import { CookieService } from './cookie.service'
-import { Response } from 'express'
+import { Request, Response } from 'express'
 
 @Controller('auth')
 export class AuthController {
@@ -32,8 +33,22 @@ export class AuthController {
     @Res({ passthrough: true }) res: Response
   ) {
     const { refreshToken, ...rest } = await this.authService.auth(dto)
-
     this.cookieService.setCookie(res, refreshToken)
+
+    return rest
+  }
+
+  @Get('refresh')
+  async refresh(
+    @Req() req: Request,
+    @Res({ passthrough: true }) res: Response
+  ) {
+    const oldRefreshToken = await this.cookieService.getCookie(req)
+    const { refreshToken, ...rest } =
+      await this.authService.refresh(oldRefreshToken)
+    this.cookieService.setCookie(res, refreshToken)
+
+    console.log(rest)
 
     return rest
   }
@@ -41,6 +56,6 @@ export class AuthController {
   @Post('sign-out')
   async signOut(@Res({ passthrough: true }) res: Response) {
     await this.cookieService.clearCookie(res)
-    return { message: 'Вы успешно вышли из системы!' }
+    return { message: 'You have successfully left the system!' }
   }
 }

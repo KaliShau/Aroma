@@ -4,11 +4,13 @@ import { AuthController } from './auth.controller'
 import { UserService } from '../user/user.service'
 import { VerificationService } from '../verification/verification.service'
 import { MailService } from './mail.service'
-import { JwtModule, JwtService } from '@nestjs/jwt'
+import { JwtModule } from '@nestjs/jwt'
 import { CookieService } from './cookie.service'
 import { ConfigService } from '@nestjs/config'
 import { JwtConfig } from 'src/shared/configs/jwt.config'
 import { JwtStrategy } from './strategies/jwt.strategy'
+import { PassportModule } from '@nestjs/passport'
+import { PassportConfig } from 'src/shared/configs/passport.config'
 
 @Module({
   controllers: [AuthController],
@@ -25,6 +27,9 @@ import { JwtStrategy } from './strategies/jwt.strategy'
     JwtModule.registerAsync({
       inject: [ConfigService],
       useFactory: JwtConfig,
+    }),
+    PassportModule.registerAsync({
+      useFactory: PassportConfig,
     }),
   ],
   exports: [JwtModule],
