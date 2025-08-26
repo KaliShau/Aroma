@@ -59,11 +59,15 @@ export class AuthService {
     if (!refreshToken)
       throw new UnauthorizedException('Refresh token not found!')
 
-    const valid = await this.jwtService.decode(refreshToken)
+    let token
 
-    if (!valid) throw new UnauthorizedException('Invalid refresh token')
+    try {
+      token = await this.jwtService.verifyAsync(refreshToken)
+    } catch {
+      throw new UnauthorizedException('Invalid refresh token')
+    }
 
-    const user = await this.userService.getById(valid.sub)
+    const user = await this.userService.getById(token.sub)
 
     if (!user) throw new UnauthorizedException('Invalid refresh token')
 

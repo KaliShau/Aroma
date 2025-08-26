@@ -48,8 +48,6 @@ export class AuthController {
       await this.authService.refresh(oldRefreshToken)
     this.cookieService.setCookie(res, refreshToken)
 
-    console.log(rest)
-
     return rest
   }
 

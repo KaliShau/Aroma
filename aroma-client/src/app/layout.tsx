@@ -6,7 +6,7 @@ import { Layout } from '@/widgets/layout'
 
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/shared/constants/seo.constant'
 
-import { MainProvider } from './providers/main-provider'
+import { MainProvider } from './providers/main.provider'
 import './styles/globals.scss'
 
 const font = Montserrat({

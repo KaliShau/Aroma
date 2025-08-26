@@ -1,0 +1,35 @@
+.root {
+  @apply flex flex-col gap-[6px];
+
+  > span {
+    @apply text-sm opacity-80;
+  }
+
+  > div {
+    @apply flex items-center  p-[6px] border-2 border-brown rounded-[5px] gap-[10px] w-[450px] text-center;
+
+    > svg {
+      @apply w-[22px] h-[14px];
+    }
+
+    > input {
+      @apply bg-transparent placeholder:text-brown placeholder:opacity-40 w-full outline-none;
+    }
+  }
+
+  .error {
+    @apply text-red opacity-80;
+  }
+}
+
+.errorInput {
+  @apply border-red  !important;
+
+  > input {
+    @apply placeholder:text-red !important;
+  }
+
+  path {
+    @apply stroke-red;
+  }
+}

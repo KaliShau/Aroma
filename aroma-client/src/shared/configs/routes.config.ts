@@ -1,5 +1,3 @@
-export const APP_URL = process.env.APP_URL
-
 export const PUBLIC_ROUTES = {
   root: (url: string = '') => `${url ? url : ''}`,
 
@@ -18,7 +16,11 @@ export const PUBLIC_ROUTES = {
   customers: () => PUBLIC_ROUTES.root('/customers'),
   customer: (id: string) => PUBLIC_ROUTES.root(`/customers/${id}`),
 
-  settingsAppearance: () => PUBLIC_ROUTES.root(`/settings/appearance`)
+  settingsAppearance: () => PUBLIC_ROUTES.root(`/settings/appearance`),
+
+  generateCode: () => PUBLIC_ROUTES.root('/generate-code'),
+  auth: () => PUBLIC_ROUTES.root('/auth'),
+  signOut: () => PUBLIC_ROUTES.root('/sign-out')
 }
 
 export const PRIVATE_ROUTES = {

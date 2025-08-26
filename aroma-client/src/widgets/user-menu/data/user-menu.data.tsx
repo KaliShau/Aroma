@@ -41,6 +41,6 @@ export const USER_DATA_MENU: TypeItemUserDataMenu[] = [
       </>
     ),
     access: EnumAccessItemUserDataMenu.public,
-    href: PUBLIC_ROUTES.signIn()
+    href: PUBLIC_ROUTES.generateCode()
   }
 ]
