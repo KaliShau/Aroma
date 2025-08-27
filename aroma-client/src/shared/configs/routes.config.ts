@@ -19,7 +19,7 @@ export const PUBLIC_ROUTES = {
   settingsAppearance: () => PUBLIC_ROUTES.root(`/settings/appearance`),
 
   generateCode: () => PUBLIC_ROUTES.root('/generate-code'),
-  auth: () => PUBLIC_ROUTES.root('/auth'),
+  auth: (email: string) => PUBLIC_ROUTES.root(`/auth?email=${email}`),
   signOut: () => PUBLIC_ROUTES.root('/sign-out')
 }
 

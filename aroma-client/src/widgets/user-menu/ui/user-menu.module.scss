@@ -11,5 +11,16 @@
 }
 
 .show {
-  @apply flex;
+  @apply flex opacity-100;
+  animation: show 0.3s ease;
+}
+
+@keyframes show {
+  0% {
+    @apply opacity-0;
+  }
+
+  100% {
+    @apply opacity-100;
+  }
 }

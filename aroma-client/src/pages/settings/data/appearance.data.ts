@@ -4,7 +4,7 @@ import {
   TypeItemSwitch
 } from '@/entities/setting'
 
-export const APPEARANCE_DATA: TypeItemSwitch[] = [
+export const APPEARANCE_NAV_BAR_DATA: TypeItemSwitch[] = [
   {
     title: 'Dynamic navigation bar',
     action: setIsDynamicNavigationBar,

@@ -1,5 +1,5 @@
 .root {
-  @apply flex flex-col bg-brown mt-[2vw] relative pt-[25px] gap-[60px];
+  @apply flex flex-col bg-brown mt-[2vw] relative pt-[25px] gap-[60px] justify-between min-h-full;
 
   &::after {
     content: '';

@@ -29,7 +29,6 @@ export const SettingsLayout: FC<TypeSettingsLayout> = ({ children }) => {
         </aside>
         {children}
       </div>
-      <Footer />
     </div>
   )
 }

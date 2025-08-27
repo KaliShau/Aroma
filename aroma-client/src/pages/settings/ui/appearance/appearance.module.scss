@@ -1,3 +1,7 @@
 .root {
-  @apply w-full flex flex-col gap-[15px];
+  @apply w-full flex flex-col gap-[15px] h-full min-h-full flex-grow;
+
+  > h3 {
+    @apply text-2xl text-brown font-bold;
+  }
 }

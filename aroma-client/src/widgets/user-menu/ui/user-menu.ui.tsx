@@ -22,7 +22,13 @@ export const UserMenu: FC<TypeUserMenu> = ({
   const { ref } = useUserMenu({ setIsShowMenu, buttonRef })
 
   return (
-    <div ref={ref} className={cn(styles.root, { [styles.show]: isShowMenu })}>
+    <div
+      ref={ref}
+      className={cn(styles.root, {
+        [styles.show]: isShowMenu,
+        [styles.hide]: !isShowMenu
+      })}
+    >
       <h4>User menu</h4>
       {USER_DATA_MENU.map(item => (
         <Link

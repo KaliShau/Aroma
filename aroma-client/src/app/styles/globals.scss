@@ -4,7 +4,7 @@
 
 body {
   font-family: var(--font);
-  @apply p-[25px] bg-white min-h-screen flex flex-col text-beige;
+  @apply p-[25px] bg-white min-h-screen h-full flex-col flex text-beige;
 }
 
 body::-webkit-scrollbar {

@@ -1,9 +1,9 @@
 .root {
-  @apply flex flex-col pt-[6%];
+  @apply flex flex-col pt-[6%] justify-between h-full min-h-full;
 }
 
 .main {
-  @apply flex gap-[30px] w-full;
+  @apply flex gap-[30px] w-full flex-grow;
 
   > aside {
     @apply bg-white p-[25px] rounded-default gap-[10px] flex flex-col h-fit;
