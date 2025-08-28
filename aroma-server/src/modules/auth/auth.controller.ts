@@ -27,12 +27,12 @@ export class AuthController {
   }
 
   @UsePipes(new ValidationPipe())
-  @Post()
-  async auth(
+  @Post('entry-code')
+  async entryCode(
     @Body() dto: SendCodeDto,
     @Res({ passthrough: true }) res: Response
   ) {
-    const { refreshToken, ...rest } = await this.authService.auth(dto)
+    const { refreshToken, ...rest } = await this.authService.entryCode(dto)
     this.cookieService.setCookie(res, refreshToken)
 
     return rest

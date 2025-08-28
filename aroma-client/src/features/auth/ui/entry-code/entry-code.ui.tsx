@@ -1,51 +1,49 @@
 'use client'
 
 import { redirect } from 'next/navigation'
-import { SubmitHandler, useForm, UseFormHandleSubmit } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
-import Email from '@/shared/assets/icons/email.svg'
+import Key from '@/shared/assets/icons/key.svg'
 import SignIn from '@/shared/assets/icons/sign-in.svg'
 import Spinner from '@/shared/assets/icons/spinner.svg'
-import { GUEST_ROUTES, PUBLIC_ROUTES } from '@/shared/configs/routes.config'
-import { Circles } from '@/shared/ui/circles/circles.ui'
+import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
 import { Field } from '@/shared/ui/field/field.ui'
 import { EnumModelLink } from '@/shared/ui/link/link.type'
 import { Link } from '@/shared/ui/link/link.ui'
 
-import { useGenerateCode } from '../../hooks/generate-code.hook'
-import { TypeGenerateCode } from '../../model/auth.type'
+import { useEntryCode } from '../../hooks/entry-code.hook'
+import { TypeEntryCode } from '../../model/auth.type'
 import styles from '../auth.module.scss'
 
-export const GenerateCodeForm = () => {
+export const EntryCodeForm = ({ email }: { email: string }) => {
   const {
     register,
     formState: { errors },
-    handleSubmit,
-    getValues
-  } = useForm<TypeGenerateCode>({ mode: 'onChange' })
-  const { isPending, mutate, isSuccess } = useGenerateCode()
+    handleSubmit
+  } = useForm<TypeEntryCode>({ mode: 'onChange' })
+  const { isPending, mutate, isSuccess } = useEntryCode()
 
-  const onSubmit: SubmitHandler<TypeGenerateCode> = data => {
-    mutate(data)
+  const onSubmit: SubmitHandler<TypeEntryCode> = data => {
+    mutate({ code: data.code, email })
   }
 
   if (isSuccess) {
-    redirect(GUEST_ROUTES.entryCode(getValues('email')))
+    redirect(PUBLIC_ROUTES.home())
   }
 
   return (
     <form className={styles.root} onSubmit={handleSubmit(onSubmit)}>
       <h2>
-        Generate <span>Code</span>
+        Entry <span>Code</span>
       </h2>
       <Field
-        label='Only login via email'
-        className={styles.email}
-        icon={Email}
-        placeholder='Email address'
-        error={errors.email}
+        label='Enter the code that came to the email'
+        className={styles.key}
+        icon={Key}
+        placeholder='Code'
+        error={errors.code}
         disabled={isPending}
-        {...register('email', {
+        {...register('code', {
           required: { message: 'This field is mandatory!', value: true }
         })}
       />
@@ -58,7 +56,7 @@ export const GenerateCodeForm = () => {
           <Spinner />
         ) : (
           <>
-            Get the code <SignIn />
+            Sign In <SignIn />
           </>
         )}
       </Link>

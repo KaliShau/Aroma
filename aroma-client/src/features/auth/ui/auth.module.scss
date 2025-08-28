@@ -17,4 +17,16 @@
   > button {
     @apply flex justify-center shadow-none;
   }
+
+  .key {
+    svg {
+      @apply h-[24px] w-[24px];
+    }
+  }
+
+  .email {
+    svg {
+      @apply w-[24px] h-[14px];
+    }
+  }
 }

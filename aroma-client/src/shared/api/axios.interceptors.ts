@@ -1,5 +1,7 @@
 import axios, { CreateAxiosDefaults } from 'axios'
 
+import { AuthService } from '@/features/auth/services/auth.service'
+
 import { cookieTokens } from '../utils/token.utils'
 import { errorCatch, getContentType } from './api.helpers'
 
@@ -35,8 +37,12 @@ axiosWithAuth.interceptors.response.use(
     ) {
       originalRequest._isRetry = true
       try {
-        await AuthService.getNewTokens()
-        return axiosWithAuth.request(originalRequest)
+        const token = await AuthService.refresh()
+        if (token.accessToken) {
+          cookieTokens.setAccess(token.accessToken)
+          originalRequest.headers.Authorization = `Bearer ${token.accessToken}`
+          return axiosWithAuth.request(originalRequest)
+        }
       } catch (error) {
         if (errorCatch(error) === 'jwt expired') cookieTokens.removeAccess()
       }

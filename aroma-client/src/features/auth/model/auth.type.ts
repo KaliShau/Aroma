@@ -4,7 +4,7 @@ export type TypeGenerateCode = {
   email: string
 }
 
-export type TypeAuth = {
+export type TypeEntryCode = {
   email: string
   code: string
 }
@@ -13,6 +13,6 @@ export type TypeAccessToken = {
   accessToken: string
 }
 
-export type TypeResponseAuth = TypeAccessToken & {
+export type TypeResponseEntryCode = TypeAccessToken & {
   user: TypeUser
 }

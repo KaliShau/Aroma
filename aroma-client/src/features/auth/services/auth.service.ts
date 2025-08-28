@@ -4,17 +4,17 @@ import { API_ENDPOINTS } from '@/shared/configs/api.config'
 
 import {
   TypeAccessToken,
-  TypeAuth,
+  TypeEntryCode,
   TypeGenerateCode,
-  TypeResponseAuth
+  TypeResponseEntryCode
 } from '../model/auth.type'
 
 export const AuthService = {
   generateCode: async (data: TypeGenerateCode): Promise<TypeMessage> =>
     (await axiosClassic.post(API_ENDPOINTS.generateCode(), data)).data,
 
-  auth: async (data: TypeAuth): Promise<TypeResponseAuth> =>
-    (await axiosClassic.post(API_ENDPOINTS.auth(), data)).data,
+  entryCode: async (data: TypeEntryCode): Promise<TypeResponseEntryCode> =>
+    (await axiosClassic.post(API_ENDPOINTS.entryCode(), data)).data,
 
   signOut: async (): Promise<TypeMessage> =>
     (await axiosClassic.post(API_ENDPOINTS.signOut())).data,

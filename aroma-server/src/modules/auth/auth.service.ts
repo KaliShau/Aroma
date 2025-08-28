@@ -34,7 +34,7 @@ export class AuthService {
     return { message: 'The code is sent to your mail!' }
   }
 
-  async auth(dto: SendCodeDto) {
+  async entryCode(dto: SendCodeDto) {
     const user = await this.userService.getByEmail(dto.email)
 
     if (!user)

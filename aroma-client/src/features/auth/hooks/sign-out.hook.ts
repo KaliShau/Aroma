@@ -1,16 +1,20 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import toast from 'react-hot-toast'
 
 import { errorCatch } from '@/shared/api/api.helpers'
+import { cookieTokens } from '@/shared/utils/token.utils'
 
-import { TypeGenerateCode } from '../model/auth.type'
 import { AuthService } from '../services/auth.service'
 
-export const useGenerateCode = () => {
+export const useSignOut = () => {
+  const queryClient = useQueryClient()
+
   const { mutate, isPending, isSuccess } = useMutation({
-    mutationKey: ['generate-code'],
-    mutationFn: (data: TypeGenerateCode) => AuthService.generateCode(data),
+    mutationKey: ['sign-out'],
+    mutationFn: () => AuthService.signOut(),
     onSuccess: data => {
+      cookieTokens.removeAccess()
+      queryClient.setQueryData(['user'], null)
       toast.success(data.message)
     },
     onError: error => {

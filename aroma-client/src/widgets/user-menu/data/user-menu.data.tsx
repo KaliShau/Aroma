@@ -1,14 +1,18 @@
 import LogOut from '@/shared/assets/icons/log-out.svg'
 import Settings from '@/shared/assets/icons/settings.svg'
 import SignIn from '@/shared/assets/icons/sign-in.svg'
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from '@/shared/configs/routes.config'
+import {
+  GUEST_ROUTES,
+  PRIVATE_ROUTES,
+  PUBLIC_ROUTES
+} from '@/shared/configs/routes.config'
 import { TypeLink } from '@/shared/ui/link/link.type'
 
 export enum EnumAccessItemUserDataMenu {
-  public,
+  all,
+  guest,
   private,
-  admin,
-  all
+  admin
 }
 
 type TypeItemUserDataMenu = TypeLink & {
@@ -40,7 +44,7 @@ export const USER_DATA_MENU: TypeItemUserDataMenu[] = [
         Sign in <SignIn />
       </>
     ),
-    access: EnumAccessItemUserDataMenu.public,
-    href: PUBLIC_ROUTES.generateCode()
+    access: EnumAccessItemUserDataMenu.guest,
+    href: GUEST_ROUTES.generateCode()
   }
 ]

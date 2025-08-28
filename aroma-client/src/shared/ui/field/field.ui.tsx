@@ -10,10 +10,11 @@ export const Field: FC<TypeField> = ({
   icon: Icon,
   error,
   placeholder,
+  className,
   ...rest
 }) => {
   return (
-    <div className={styles.root}>
+    <div className={cn(styles.root, className)}>
       <span>{label}</span>
       <div className={cn({ [styles.errorInput]: !!error })}>
         {Icon && <Icon />}
