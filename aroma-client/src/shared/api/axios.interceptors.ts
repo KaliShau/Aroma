@@ -2,11 +2,12 @@ import axios, { CreateAxiosDefaults } from 'axios'
 
 import { AuthService } from '@/features/auth/services/auth.service'
 
+import { CONFIG_ENV } from '../configs/env.config'
 import { cookieTokens } from '../utils/token.utils'
 import { errorCatch, getContentType } from './api.helpers'
 
 const options: CreateAxiosDefaults = {
-  baseURL: `${process.env.SERVER_URL}/api`,
+  baseURL: `${CONFIG_ENV.SERVER_URL}/api`,
   headers: getContentType(),
   withCredentials: true
 }

@@ -8,6 +8,10 @@
   > a {
     @apply w-[277px] bg-white shadow-none;
   }
+
+  .cardWrapper {
+    @apply bg-transparent;
+  }
 }
 
 .show {

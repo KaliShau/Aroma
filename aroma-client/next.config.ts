@@ -1,5 +1,7 @@
 import type { NextConfig } from 'next'
 
+import { CONFIG_ENV } from '@/shared/configs/env.config'
+
 const nextConfig: NextConfig = {
   env: {
     APP_URL: process.env.APP_URL,
@@ -18,6 +20,15 @@ const nextConfig: NextConfig = {
       use: ['@svgr/webpack']
     })
     return config
+  },
+
+  async rewrites() {
+    return [
+      {
+        source: `/uploads/:path*`,
+        destination: `${CONFIG_ENV.SERVER_URL}/uploads/:path*`
+      }
+    ]
   }
 }
 

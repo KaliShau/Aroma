@@ -1,0 +1,27 @@
+.root {
+  @apply text-brown w-full flex flex-col gap-4;
+
+  > h3 {
+    @apply text-2xl text-brown font-bold;
+  }
+
+  > a {
+    @apply bg-white w-full p-[25px] flex items-center rounded-default transition-all gap-0 justify-between;
+
+    svg {
+      @apply w-7 h-9;
+    }
+
+    h4 {
+      @apply font-bold text-base;
+    }
+
+    p {
+      @apply font-semibold text-sm opacity-70;
+    }
+
+    &:hover {
+      @apply scale-[1.02];
+    }
+  }
+}

@@ -1,6 +1,6 @@
-import { GenerateCode } from '@/pages/auth/generate-code'
-import { SignOut } from '@/pages/auth/sign-out'
 import { Metadata, NextPage } from 'next'
+
+import { SignOut } from '@/pages-fsd/auth/sign-out'
 
 import { NO_INDEX_PAGE } from '@/shared/constants/seo.constant'
 

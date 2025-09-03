@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 import { EnumUserRole, TypeUser } from './entities/user'
-import { TypeAccessToken } from './features/auth/model/auth.type'
-import { AuthService } from './features/auth/services/auth.service'
-import { UserService } from './features/user/services/user.service'
+import { TypeAccessToken } from './features/auth'
 import { API_ENDPOINTS } from './shared/configs/api.config'
+import { CONFIG_ENV } from './shared/configs/env.config'
 import {
   ADMIN_ROUTES,
   GUEST_ROUTES,
@@ -97,7 +96,7 @@ async function verifyRefreshToken(
 ): Promise<boolean | string> {
   try {
     const response = await fetch(
-      `${process.env.SERVER_URL}/api${API_ENDPOINTS.refresh()}`,
+      `${CONFIG_ENV.SERVER_URL}/api${API_ENDPOINTS.refresh()}`,
       {
         method: 'GET',
         headers: {
@@ -120,7 +119,7 @@ async function verifyRefreshToken(
 async function getUser(accessToken: string): Promise<TypeUser | null> {
   try {
     const response = await fetch(
-      `${process.env.SERVER_URL}/api${API_ENDPOINTS.profile()}`,
+      `${CONFIG_ENV.SERVER_URL}/api${API_ENDPOINTS.profile()}`,
       {
         method: 'GET',
         headers: {

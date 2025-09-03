@@ -1,0 +1,65 @@
+.privacyPolicy {
+  @apply bg-beige min-h-screen mx-auto;
+}
+
+.privacyContainer {
+  @apply container mx-auto px-2 max-w-4xl;
+}
+
+.privacyHeader {
+  @apply text-center mb-4;
+
+  h1 {
+    @apply text-brown text-5xl font-bold mb-4;
+  }
+}
+
+.lastUpdated {
+  @apply text-orange font-semibold text-lg;
+}
+
+.privacyContent {
+  @apply bg-white rounded-default p-10 shadow-lg flex flex-col gap-3;
+}
+
+.policySection {
+  h2 {
+    @apply text-brown text-3xl font-bold mb-4 border-b-2 border-orange pb-2;
+  }
+
+  h3 {
+    @apply text-brown text-xl font-semibold mt-4 mb-2;
+  }
+
+  p {
+    @apply text-brown font-semibold mb-4 leading-relaxed;
+  }
+
+  ul {
+    @apply list-disc list-inside mb-4 ml-4;
+
+    li {
+      @apply text-brown font-semibold mb-2 leading-relaxed;
+    }
+  }
+}
+
+.subsection {
+  @apply mb-6;
+
+  ul {
+    @apply mt-2;
+  }
+}
+
+.contactInfo {
+  @apply bg-brown/10 rounded-default p-6 mt-4;
+
+  p {
+    @apply mb-2 last:mb-0;
+
+    strong {
+      @apply text-orange;
+    }
+  }
+}

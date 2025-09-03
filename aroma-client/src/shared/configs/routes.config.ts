@@ -14,7 +14,10 @@ export const PUBLIC_ROUTES = {
   customers: () => PUBLIC_ROUTES.root('/customers'),
   customer: (id: string) => PUBLIC_ROUTES.root(`/customers/${id}`),
 
-  settingsAppearance: () => PUBLIC_ROUTES.root(`/settings/appearance`)
+  settingsAppearance: () => PUBLIC_ROUTES.root(`/settings/appearance`),
+
+  documentations: () => PUBLIC_ROUTES.root(`/documentations`),
+  privacyPolicy: () => PUBLIC_ROUTES.root(`/documentations/privacy-policy`)
 }
 
 export const PRIVATE_ROUTES = {

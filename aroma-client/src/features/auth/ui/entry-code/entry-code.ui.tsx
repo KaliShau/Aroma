@@ -48,8 +48,8 @@ export const EntryCodeForm = ({ email }: { email: string }) => {
         })}
       />
       <p>
-        By signing up or logging in, you consent to Aroma's Terms of Use and
-        Privacy Policy.
+        By signing up or logging in, you consent to Aroma's Terms of Use and{' '}
+        <Link href={PUBLIC_ROUTES.privacyPolicy()}> Privacy Policy</Link>.
       </p>
       <Link isButton={true} model={EnumModelLink.fill} disabled={isPending}>
         {isPending ? (

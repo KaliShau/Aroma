@@ -1,5 +1,6 @@
-import { NotFound } from '@/pages/not-found'
 import { Metadata } from 'next'
+
+import { NotFound } from '@/pages-fsd/not-found'
 
 export const metadata: Metadata = {
   title: 'Not Found'

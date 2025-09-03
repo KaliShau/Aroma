@@ -1,0 +1,11 @@
+.root {
+  @apply border-2 rounded-default w-[44px] h-[44px] transition-colors  shadow-lg flex justify-center items-center uppercase;
+
+  img {
+    @apply w-full h-full rounded-[13px] object-cover;
+  }
+
+  &:hover {
+    @apply text-orange;
+  }
+}

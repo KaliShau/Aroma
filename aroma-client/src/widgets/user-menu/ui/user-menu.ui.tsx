@@ -2,8 +2,9 @@ import { Dispatch, FC, RefObject, SetStateAction } from 'react'
 
 import { useProfile } from '@/features/user'
 
-import { EnumUserRole } from '@/entities/user'
+import { EnumUserRole, UserCard } from '@/entities/user'
 
+import { PRIVATE_ROUTES } from '@/shared/configs/routes.config'
 import { cn } from '@/shared/lib/cn'
 import { EnumModelLink } from '@/shared/ui/link/link.type'
 import { Link } from '@/shared/ui/link/link.ui'
@@ -37,7 +38,18 @@ export const UserMenu: FC<TypeUserMenu> = ({
         [styles.hide]: !isShowMenu
       })}
     >
-      <h4>User menu</h4>
+      {isAuth ? (
+        <Link
+          className={styles.cardWrapper}
+          href={PRIVATE_ROUTES.profile()}
+          onClick={() => setIsShowMenu(false)}
+        >
+          <UserCard user={data!} />
+        </Link>
+      ) : (
+        <h4>User menu</h4>
+      )}
+
       {USER_DATA_MENU.map(item => {
         let hasAccess = false
 

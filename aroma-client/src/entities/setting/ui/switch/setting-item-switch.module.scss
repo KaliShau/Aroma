@@ -3,13 +3,11 @@
   transition: transform 0.3s ease;
 
   &:hover {
-    h6 {
-      @apply whitespace-normal;
-    }
+    @apply scale-[1.02];
   }
 
   h6 {
-    @apply items-center max-w-[750px] overflow-ellipsis overflow-hidden whitespace-nowrap;
+    @apply items-center max-w-[750px];
   }
 
   .switchLabel {

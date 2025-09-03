@@ -42,3 +42,25 @@
     }
   }
 }
+
+.active {
+  &.text {
+    @apply text-orange;
+
+    &::after {
+      @apply h-1 bg-orange;
+    }
+  }
+
+  &.fill {
+    @apply bg-orange text-brown;
+  }
+
+  &.border {
+    @apply border-orange;
+
+    path {
+      @apply fill-orange;
+    }
+  }
+}

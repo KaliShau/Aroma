@@ -2,14 +2,15 @@ import { useQuery } from '@tanstack/react-query'
 
 import { UserService } from '../services/user.service'
 
-export const useProfile = () => {
+export const useProfile = (enabled: boolean = true) => {
   const { data, isError, isLoading } = useQuery({
     queryKey: ['user'],
     queryFn: () => UserService.profile(),
     retry: false,
     retryOnMount: false,
     refetchOnWindowFocus: false,
-    staleTime: 5 * 60 * 1000
+    staleTime: 5 * 60 * 1000,
+    enabled
   })
 
   const isAuth = !!data

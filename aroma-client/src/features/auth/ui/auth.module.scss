@@ -12,6 +12,14 @@
 
   > p {
     @apply text-sm max-w-[450px];
+
+    > a {
+      @apply inline-flex text-orange border-b-2 transition-opacity;
+
+      &:hover {
+        @apply opacity-80;
+      }
+    }
   }
 
   > button {

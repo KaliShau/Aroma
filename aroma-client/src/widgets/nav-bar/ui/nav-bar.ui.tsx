@@ -1,19 +1,16 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { useSelector } from 'react-redux'
 
 import { RootState } from '@/app/store/store'
 
-import { UserMenu } from '@/widgets/user-menu'
-
-import User from '@/shared/assets/icons/user.svg'
 import { cn } from '@/shared/lib/cn'
-import { EnumModelLink } from '@/shared/ui/link/link.type'
 import { Link } from '@/shared/ui/link/link.ui'
 
-import { NAV_HOME, NAV_MENU, NAV_RIGHT_BAR } from '../data/nav-bar.data'
+import { NAV_HOME, NAV_MENU } from '../data/nav-bar.data'
 import styles from './nav-bar.module.scss'
+import { RightBar } from './right-bar.ui'
 
 export const NavBar = () => {
   const { isDynamicNavigationBar, isTransparentNavigationBar } = useSelector(
@@ -52,34 +49,6 @@ const Links = () => {
           {item.children}
         </Link>
       ))}
-    </div>
-  )
-}
-
-const RightBar = () => {
-  const [isShowMenu, setIsShowMenu] = useState<boolean>(false)
-  const buttonRef = useRef<HTMLButtonElement | null>(null)
-
-  return (
-    <div className={styles.right}>
-      {NAV_RIGHT_BAR.map((item, i) => (
-        <Link key={i} {...item}>
-          {item.children}
-        </Link>
-      ))}
-      <Link
-        ref={buttonRef}
-        model={EnumModelLink.border}
-        isButton={true}
-        onClick={() => setIsShowMenu(prev => !prev)}
-      >
-        <User />
-      </Link>
-      <UserMenu
-        isShowMenu={isShowMenu}
-        setIsShowMenu={setIsShowMenu}
-        buttonRef={buttonRef}
-      />
     </div>
   )
 }
