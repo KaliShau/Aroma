@@ -1,0 +1,46 @@
+.root {
+  @apply gap-[20px] flex flex-col;
+  letter-spacing: 5%;
+
+  > h3 {
+    @apply mt-2 text-5xl font-bold mx-auto text-center text-brown;
+  }
+}
+
+.topBar {
+  > div {
+    @apply inline-flex mt-[10%] bg-brown/80 flex-col rounded-default p-[10px] gap-[15px] mx-[17%] mb-[33%] text-beige transition-all;
+
+    > h2 {
+      @apply text-5xl font-bold;
+    }
+
+    > p {
+      @apply font-bold text-base max-w-[433px];
+    }
+
+    &:hover {
+      @apply scale-105;
+    }
+  }
+}
+
+.cards {
+  @apply flex justify-center gap-[20px] text-brown;
+}
+
+.card {
+  @apply p-[50px] bg-white rounded-default flex flex-col gap-[27px] max-w-[400px] transition-all;
+
+  > h4 {
+    @apply text-xl font-extrabold;
+  }
+
+  > p {
+    @apply text-base font-bold;
+  }
+
+  &:hover {
+    @apply scale-105;
+  }
+}

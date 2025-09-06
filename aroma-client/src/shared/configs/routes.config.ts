@@ -9,8 +9,6 @@ export const PUBLIC_ROUTES = {
   aboutUs: () => PUBLIC_ROUTES.root('/about-us'),
   contact: () => PUBLIC_ROUTES.root('/contact'),
 
-  cart: () => PUBLIC_ROUTES.root('/cart'),
-
   customers: () => PUBLIC_ROUTES.root('/customers'),
   customer: (id: string) => PUBLIC_ROUTES.root(`/customers/${id}`),
 

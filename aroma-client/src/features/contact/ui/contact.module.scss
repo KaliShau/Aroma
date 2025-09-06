@@ -1,0 +1,26 @@
+.form {
+  @apply bg-white/40 flex h-[715px] flex-col max-w-[669px] w-full rounded-default p-[25px] relative;
+
+  > button {
+    @apply shadow-none flex justify-center;
+  }
+
+  > svg {
+    @apply absolute right-0 top-0;
+  }
+
+  .fields {
+    @apply font-bold h-full;
+  }
+
+  > div {
+    > h2 {
+      @apply font-bold text-[32px];
+      letter-spacing: 5%;
+
+      &:last-child {
+        @apply text-orange;
+      }
+    }
+  }
+}

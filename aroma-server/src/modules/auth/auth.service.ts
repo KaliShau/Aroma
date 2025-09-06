@@ -21,6 +21,10 @@ export class AuthService {
   ) {}
 
   async generateCode(dto: EmailAuthDto) {
+    const validation = await this.mailService.validateEmail(dto.email)
+
+    if (!validation.isValid) throw new BadRequestException(validation.message)
+
     let user = await this.userService.getByEmail(dto.email)
 
     if (!user) {
@@ -28,7 +32,6 @@ export class AuthService {
     }
 
     const code = await this.verificationService.updateCodeAndExpiration(user.id)
-
     await this.mailService.sendAuthCode(user.email, code)
 
     return { message: 'The code is sent to your mail!' }

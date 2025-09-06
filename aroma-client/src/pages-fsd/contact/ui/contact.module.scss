@@ -1,0 +1,35 @@
+.container {
+  @apply pt-[6%] text-brown flex gap-[100px] justify-center items-center h-full;
+}
+
+.info {
+  @apply max-w-[500px] gap-[20px] flex flex-col;
+
+  > h2 {
+    @apply text-5xl font-bold text-brown;
+
+    > span {
+      @apply text-orange;
+    }
+  }
+
+  > div {
+    @apply p-[24px] bg-brown/10 rounded-default flex flex-col gap-[10px];
+  }
+
+  > p {
+    @apply text-lg font-semibold;
+  }
+
+  .item {
+    @apply flex gap-1 font-extrabold;
+
+    > h5 {
+      @apply text-orange;
+    }
+  }
+}
+
+.root {
+  @apply flex-1;
+}

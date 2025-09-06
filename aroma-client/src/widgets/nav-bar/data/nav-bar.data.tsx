@@ -46,8 +46,8 @@ export const NAV_RIGHT_BAR: TypeLink[] = [
     model: EnumModelLink.fill
   },
   {
-    href: PUBLIC_ROUTES.cart(),
     children: <Cart />,
-    model: EnumModelLink.border
+    model: EnumModelLink.border,
+    isButton: true
   }
 ]

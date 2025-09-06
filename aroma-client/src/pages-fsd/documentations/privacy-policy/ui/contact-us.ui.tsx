@@ -1,3 +1,5 @@
+import { CONTACT_DATA } from '@/shared/constants/contact.constant'
+
 import styles from './privacy-policy.module.scss'
 
 export const PrivacyPolicyContactUs = () => {
@@ -10,13 +12,13 @@ export const PrivacyPolicyContactUs = () => {
       </p>
       <div className={styles.contactInfo}>
         <p>
-          <strong>Email:</strong> privacy@aroma-coffee.com
+          <strong>Email:</strong> {CONTACT_DATA.email}
         </p>
         <p>
-          <strong>Phone:</strong> +1 (555) 123-4567
+          <strong>Phone:</strong> {CONTACT_DATA.phone}
         </p>
         <p>
-          <strong>Address:</strong> 123 Coffee Street, Brewville, CO 12345
+          <strong>Address:</strong> {CONTACT_DATA.address}
         </p>
       </div>
     </section>

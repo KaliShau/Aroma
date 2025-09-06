@@ -1,17 +1,19 @@
+import { CONTACT_DATA } from '@/shared/constants/contact.constant'
+
 import { TypeInfo } from '../model/footer.type'
 
 export const INFO: TypeInfo[] = [
   {
     title: 'Location',
-    info: 'City, street, house'
+    info: CONTACT_DATA.address
   },
   {
     title: 'Phone',
-    info: '8 918 987 65 43'
+    info: CONTACT_DATA.phone
   },
   {
     title: 'Email',
-    info: 'aroma@coffee.com'
+    info: CONTACT_DATA.email
   },
   {
     title: 'Opening Hours',

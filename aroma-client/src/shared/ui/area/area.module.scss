@@ -1,0 +1,31 @@
+.root {
+  @apply flex flex-col gap-[6px]  max-h-[400px];
+
+  > span {
+    @apply text-sm opacity-80;
+  }
+
+  > div {
+    @apply flex items-center  p-[6px] border-2 border-brown rounded-[5px] gap-[10px]  text-center w-full h-full max-h-[400px];
+
+    > textarea {
+      @apply bg-transparent placeholder:text-brown placeholder:opacity-40 w-full outline-none max-h-[400px] h-[380px] resize-y;
+    }
+  }
+
+  .error {
+    @apply text-red opacity-80;
+  }
+}
+
+.errorInput {
+  @apply border-red  !important;
+
+  > textarea {
+    @apply placeholder:text-red !important;
+  }
+
+  path {
+    @apply stroke-red;
+  }
+}
