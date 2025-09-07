@@ -6,7 +6,7 @@ import {
 import { PrismaService } from 'src/core/db/prisma.service'
 import { EmailAuthDto, SendCodeDto } from './dto/auth.dto'
 import { UserService } from '../user/user.service'
-import { VerificationService } from '../verification/verification.service'
+import { VerificationService } from './verification/verification.service'
 import { MailService } from './mail.service'
 import { JwtService } from '@nestjs/jwt'
 

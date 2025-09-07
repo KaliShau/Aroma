@@ -1,4 +1,4 @@
-import { IsString, Length } from 'class-validator'
+import { IsString } from 'class-validator'
 import { EmailUserDto } from 'src/modules/user/dto/user.dto'
 
 export class EmailAuthDto extends EmailUserDto {}

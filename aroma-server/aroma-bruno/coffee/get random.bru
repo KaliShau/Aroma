@@ -1,0 +1,15 @@
+meta {
+  name: get random
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{api}}/coffee/random
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

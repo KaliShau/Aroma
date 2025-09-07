@@ -5,9 +5,12 @@ import { ServeStaticModule } from '@nestjs/serve-static'
 import { ServeStaticConfig } from 'src/shared/configs/serve-static.config'
 import { UserModule } from 'src/modules/user/user.module'
 import { AuthModule } from 'src/modules/auth/auth.module'
-import { VerificationModule } from 'src/modules/verification/verification.module'
+import { VerificationModule } from 'src/modules/auth/verification/verification.module'
 import { MailerModule } from '@nestjs-modules/mailer'
 import { MailerConfig } from 'src/shared/configs/mailer.config'
+import { CoffeeModule } from 'src/modules/coffee/coffee.module'
+import { CategoryCoffeeModule } from 'src/modules/category-coffee/category-coffee.module'
+import { FileModule } from 'src/modules/file/file.module'
 
 @Module({
   imports: [
@@ -27,6 +30,9 @@ import { MailerConfig } from 'src/shared/configs/mailer.config'
     UserModule,
     AuthModule,
     VerificationModule,
+    CoffeeModule,
+    CategoryCoffeeModule,
+    FileModule,
   ],
 })
 export class AppModule {}

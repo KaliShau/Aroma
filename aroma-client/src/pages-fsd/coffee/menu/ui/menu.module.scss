@@ -1,0 +1,28 @@
+.topBar {
+  @apply pt-[6%] text-brown flex flex-col items-center gap-[30px];
+
+  > h2 {
+    @apply font-bold text-5xl max-w-[700px] text-center;
+    letter-spacing: 5%;
+  }
+
+  form {
+    @apply font-bold flex gap-[10px] items-center;
+
+    svg {
+      @apply h-[21px] w-[24px];
+    }
+
+    > button {
+      @apply shadow-none bg-brown text-beige;
+    }
+  }
+}
+
+.filters {
+  @apply text-brown flex justify-center gap-[10px];
+
+  > button {
+    @apply shadow-none bg-brown text-beige;
+  }
+}

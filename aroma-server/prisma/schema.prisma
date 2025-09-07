@@ -7,19 +7,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id String @id @default(uuid())
+  id        String   @id @default(uuid())
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
   username String
-  email String @unique
+  email    String @unique
 
   firstName String? @map("first_name")
-  lastName String? @map("last_name")
+  lastName  String? @map("last_name")
 
-  phone String?
+  phone     String?
   avatarUrl String? @map("avatar_url")
 
   role EnumUserRole
@@ -35,15 +34,49 @@ enum EnumUserRole {
 }
 
 model Verification {
-  id String @id @default(uuid())
+  id        String   @id @default(uuid())
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  code String?
-  expiresAt DateTime? @map("expires_at") 
+  code      String?
+  expiresAt DateTime? @map("expires_at")
 
-  userId String  @unique
-  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("verification")
+}
+
+model Coffee {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  name        String
+  slug        String @unique
+  description String
+
+  price    Decimal
+  imageUrl String  @map("image_url")
+
+  isAvailable Boolean @map("is_available")
+
+  categoryCoffee   CategoryCoffee? @relation(fields: [categoryCoffeeId], references: [id])
+  categoryCoffeeId String?         @map("category_coffee_id")
+
+  @@map("coffee")
+}
+
+model CategoryCoffee {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  name        String
+  slug        String @unique
+  description String
+
+  coffees Coffee[]
+
+  @@map("category_coffee")
 }

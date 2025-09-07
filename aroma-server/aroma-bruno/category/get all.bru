@@ -1,0 +1,23 @@
+meta {
+  name: get all
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{api}}/category-coffee
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Black Coffee",
+    "slug": "black-coffee",
+    "description": "The pure essence of coffee. This category features drinks where the natural flavor profile of high-quality coffee beans takes center stage, unadorned by milk or sweeteners. Perfect for purists who appreciate the nuanced notes of different roasts and origins."
+  }
+}
+
+settings {
+  encodeUrl: true
+}

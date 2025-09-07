@@ -43,8 +43,11 @@
 .customers {
   @apply justify-center items-center flex flex-col text-brown pt-[30px] gap-[30px];
 
-  > div > a {
-    @apply m-[20px];
+  > div {
+    @apply mx-auto flex flex-wrap justify-center;
+    > a {
+      @apply m-[20px];
+    }
   }
 
   > h2 {

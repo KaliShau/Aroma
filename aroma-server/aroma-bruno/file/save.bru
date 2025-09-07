@@ -1,0 +1,23 @@
+meta {
+  name: save
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{api}}/file/save
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  file: @file(/home/Shau/Trash/cappuccino.png)
+}
+
+body:file {
+  file: @file(/home/Shau/Trash/американо.jpg) @contentType(file)
+}
+
+settings {
+  encodeUrl: true
+}

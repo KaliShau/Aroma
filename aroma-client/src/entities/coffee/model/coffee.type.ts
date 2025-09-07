@@ -1,3 +1,5 @@
+import { TypeCategoryCoffee } from '@/entities/category-coffee'
+
 export type TypeCoffee = {
   id: string
   createdAt: Date
@@ -9,4 +11,7 @@ export type TypeCoffee = {
   price: number
   imageUrl: string
   isAvailable: boolean
+
+  categoryId: string
+  category: TypeCategoryCoffee
 }

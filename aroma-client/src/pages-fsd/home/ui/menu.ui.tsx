@@ -1,5 +1,7 @@
 'use client'
 
+import { useCoffeeRandom } from '@/features/coffee/hooks/coffee-random.hook'
+
 import { CoffeeCard } from '@/entities/coffee'
 import { TypeCoffee } from '@/entities/coffee/model/coffee.type'
 
@@ -13,78 +15,11 @@ import { Link } from '@/shared/ui/link/link.ui'
 import { useMenuHome } from '../hooks/menu.hooks'
 import styles from './menu.module.scss'
 
-const coffees: TypeCoffee[] = [
-  {
-    id: 'sdsdffsdfdsfsd',
-    createdAt: new Date('2025-08-10T08:00:00Z'),
-    updatedAt: new Date('2025-08-13T09:30:00Z'),
-    name: 'Latte',
-    slug: 'latte',
-    description: 'Delicate coffee with milk foam And velvety taste.',
-    imageUrl: '/test/lat.png',
-    price: 160,
-    isAvailable: true
-  },
-  {
-    id: 'dsfsfdaggsfda',
-    createdAt: new Date('2025-08-10T08:00:00Z'),
-    updatedAt: new Date('2025-08-13T09:30:00Z'),
-    name: 'Doppio',
-    slug: 'doppio',
-    description: 'Delicate coffee with milk foam And velvety taste.',
-    imageUrl: '/test/dop.png',
-    price: 160,
-    isAvailable: true
-  },
-  {
-    id: 'dsfsfdaggsfdadfgdgfs',
-    createdAt: new Date('2025-08-10T08:00:00Z'),
-    updatedAt: new Date('2025-08-13T09:30:00Z'),
-    name: 'American',
-    slug: 'american',
-    description: 'Delicate coffee with milk foam And velvety taste.',
-    imageUrl: '/test/amer.png',
-    price: 160,
-    isAvailable: true
-  },
-  {
-    id: 'dsfsfdagdffdgsfda',
-    createdAt: new Date('2025-08-10T08:00:00Z'),
-    updatedAt: new Date('2025-08-13T09:30:00Z'),
-    name: 'Mokko',
-    slug: 'mokko',
-    description: 'Delicate coffee with milk foam And velvety taste.',
-    imageUrl: '/test/mok.png',
-    price: 160,
-    isAvailable: true
-  },
-  {
-    id: 'dsfsfdagdfffddgsfda',
-    createdAt: new Date('2025-08-10T08:00:00Z'),
-    updatedAt: new Date('2025-08-13T09:30:00Z'),
-    name: 'Triplo',
-    slug: 'triplo',
-    description: 'Delicate coffee with milk foam And velvety taste.',
-    imageUrl: '/test/tri.png',
-    price: 160,
-    isAvailable: true
-  },
-  {
-    id: 'dsfsfdagdfffddgsfdffda',
-    createdAt: new Date('2025-08-10T08:00:00Z'),
-    updatedAt: new Date('2025-08-13T09:30:00Z'),
-    name: 'Ekspresso',
-    slug: 'ekspresso',
-    description: 'Delicate coffee with milk foam And velvety taste.',
-    imageUrl: '/test/eks.png',
-    price: 160,
-    isAvailable: true
-  }
-]
-
 export const MenuHome = () => {
+  const { data, isLoading } = useCoffeeRandom()
+
   const { menuData, onClickNext, onClickPrev, direction, animationKey } =
-    useMenuHome(coffees)
+    useMenuHome(data || [])
 
   return (
     <div className={styles.menu}>
@@ -96,8 +31,12 @@ export const MenuHome = () => {
           [styles.slide_prev]: direction == 'prev'
         })}
       >
-        {menuData &&
-          menuData.map((item, i) => <CoffeeCard key={i} coffee={item} />)}
+        {isLoading ? (
+          <div>Loading</div>
+        ) : (
+          menuData &&
+          menuData.map((item, i) => <CoffeeCard key={i} coffee={item} />)
+        )}
       </div>
       <Link href={PUBLIC_ROUTES.menu()} model={EnumModelLink.fill}>
         SEE ALL <Circle />
