@@ -1,0 +1,6 @@
+.root {
+  @apply flex bg-white/40  rounded-default text-brown fixed z-1 p-[25px] mt-[100px] ml-[25px] mr-[50px] max-w-[1340px] shadow;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(10px);
+}

@@ -5,15 +5,15 @@ import { FC } from 'react'
 import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
 
 import { TypeCoffee } from '../../model/coffee.type'
-import styles from './coffee-card.module.scss'
+import styles from './coffee-card-home.module.scss'
 
-type CoffeeCart = {
-  coffee: TypeCoffee
+type CoffeeCartHome = {
+  coffee: Omit<TypeCoffee, 'categoryId' | 'category'>
 }
 
-export const CoffeeCard: FC<CoffeeCart> = ({ coffee }) => {
+export const CoffeeCardHome: FC<CoffeeCartHome> = ({ coffee }) => {
   return (
-    <Link href={PUBLIC_ROUTES.coffee(coffee.slug)} className={styles.root}>
+    <Link href={PUBLIC_ROUTES.menu()} className={styles.root}>
       <Image src={coffee.imageUrl} alt={coffee.name} width={390} height={390} />
       <h3>{coffee.name}</h3>
       <p>{coffee.description}</p>

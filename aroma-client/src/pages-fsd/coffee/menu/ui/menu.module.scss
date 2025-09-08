@@ -22,7 +22,48 @@
 .filters {
   @apply text-brown flex justify-center gap-[10px];
 
-  > button {
+  > a {
     @apply shadow-none bg-brown text-beige;
   }
+
+  .active {
+    @apply bg-orange;
+  }
+}
+
+.notFound {
+  @apply text-brown font-bold w-full text-center text-2xl pt-4;
+}
+
+.cards {
+  @apply flex flex-wrap gap-[30px] justify-center;
+}
+
+.root {
+  @apply flex flex-col gap-[30px];
+}
+
+.paginate {
+  @apply w-full flex justify-center text-beige gap-[2px];
+
+  > a {
+    @apply py-[10px] px-[20px] bg-brown rounded-default font-bold transition-colors;
+
+    &:hover {
+      @apply bg-orange;
+    }
+
+    &.active {
+      @apply bg-orange;
+    }
+
+    &.disable {
+      @apply bg-brown/60;
+      pointer-events: none;
+    }
+  }
+}
+
+.wrapper {
+  @apply absolute bg-white/30 w-full h-full  top-0 left-0  rounded-default  z-1;
 }

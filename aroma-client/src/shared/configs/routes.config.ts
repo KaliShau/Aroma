@@ -4,7 +4,6 @@ export const PUBLIC_ROUTES = {
   home: () => PUBLIC_ROUTES.root('/'),
 
   menu: () => PUBLIC_ROUTES.root('/menu'),
-  coffee: (slug: string) => PUBLIC_ROUTES.root(`/menu/${slug}`),
 
   aboutUs: () => PUBLIC_ROUTES.root('/about-us'),
   contact: () => PUBLIC_ROUTES.root('/contact'),

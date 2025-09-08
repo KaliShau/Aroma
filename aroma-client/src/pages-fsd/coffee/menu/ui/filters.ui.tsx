@@ -1,27 +1,52 @@
-import { CategoryCoffee } from '@/features/category-coffee/services/category-coffee.service'
+'use client'
 
+import { useSearchParams } from 'next/navigation'
+
+import { TypeCategoryCoffee } from '@/entities/category-coffee'
+
+import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
+import { cn } from '@/shared/lib/cn'
 import { EnumModelLink } from '@/shared/ui/link/link.type'
 import { Link } from '@/shared/ui/link/link.ui'
 
 import styles from './menu.module.scss'
 
-export const CategoryCoffeeMenu = async () => {
-  const categories = await CategoryCoffee.getAll()
+export const CategoryCoffeeMenu = ({
+  category
+}: {
+  category: TypeCategoryCoffee[]
+}) => {
+  const searchParams = useSearchParams()
+  const currentCategory = searchParams.get('category')
 
-  if (!categories || categories.length === 0) {
+  const createCategoryUrl = (slug: string) => {
+    const params = new URLSearchParams(searchParams.toString())
+
+    if (currentCategory === slug) {
+      params.delete('category')
+    } else {
+      params.set('category', slug)
+    }
+    params.set('page', '1')
+
+    return `${PUBLIC_ROUTES.menu()}?${params.toString()}`
+  }
+
+  if (!category || category.length === 0) {
     return <div className={styles.filters}>Нет категорий</div>
   }
 
   return (
     <div className={styles.filters}>
-      {categories?.map(category => (
+      {category?.map(item => (
         <Link
-          isButton={true}
           model={EnumModelLink.fill}
-          key={category.id}
-          className={styles.item}
+          key={item.id}
+          scroll={false}
+          className={cn({ [styles.active]: item.slug === currentCategory })}
+          href={createCategoryUrl(item.slug)}
         >
-          {category.name}
+          {item.name}
         </Link>
       ))}
     </div>

@@ -2,8 +2,7 @@
 
 import { useCoffeeRandom } from '@/features/coffee/hooks/coffee-random.hook'
 
-import { CoffeeCard } from '@/entities/coffee'
-import { TypeCoffee } from '@/entities/coffee/model/coffee.type'
+import { CoffeeCardHome } from '@/entities/coffee'
 
 import Arrow from '@/shared/assets/icons/arrow.svg'
 import Circle from '@/shared/assets/icons/circle.svg'
@@ -35,7 +34,7 @@ export const MenuHome = () => {
           <div>Loading</div>
         ) : (
           menuData &&
-          menuData.map((item, i) => <CoffeeCard key={i} coffee={item} />)
+          menuData.map((item, i) => <CoffeeCardHome key={i} coffee={item} />)
         )}
       </div>
       <Link href={PUBLIC_ROUTES.menu()} model={EnumModelLink.fill}>

@@ -9,7 +9,7 @@ export const API_ENDPOINTS = {
   profile: () => API_ENDPOINTS.root('/user/profile'),
 
   getCoffeeRandom: () => API_ENDPOINTS.root('/coffee/random'),
-  getCoffeeAll: (page: number, category: string, search: string) =>
+  getCoffeeAll: (page: number, category?: string, search?: string) =>
     API_ENDPOINTS.root(
       `/coffee?page=${page}&category=${category}&search=${search}`
     ),
