@@ -1,6 +1,66 @@
 .root {
-  @apply flex bg-white/40  rounded-default text-brown fixed z-1 p-[25px] mt-[100px] ml-[25px] mr-[50px] max-w-[1340px] shadow;
+  @apply flex bg-white/40  rounded-default text-brown fixed z-1 p-[25px] mt-[100px] ml-[25px] mr-[50px] max-w-[1340px]  shadow;
 
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.topBar {
+  @apply flex justify-between w-full;
+
+  > img {
+    @apply bg-white/40 rounded-default;
+  }
+
+  > div {
+    @apply flex flex-col w-full ml-[10px] gap-[10px];
+
+    > p {
+      @apply font-semibold text-base;
+
+      > span {
+        @apply text-orange;
+      }
+    }
+
+    > div {
+      @apply flex justify-between w-full items-center;
+
+      > h2 {
+        @apply text-5xl text-orange font-bold;
+      }
+
+      > div {
+        @apply flex gap-[10px] items-center;
+
+        > span {
+          @apply text-[32px] text-orange font-bold;
+        }
+
+        > button {
+          @apply font-bold text-xl h-[40px] w-[40px] flex justify-center items-center shadow-none;
+
+          &:hover {
+            @apply text-orange;
+          }
+        }
+      }
+    }
+  }
+
+  .cardButton {
+    @apply m-[30px] justify-normal gap-[10px];
+
+    > button {
+      @apply bg-brown text-beige  shadow-none text-2xl px-[70px];
+
+      &:hover {
+        @apply bg-orange;
+      }
+    }
+  }
+
+  .opacity {
+    @apply text-brown/70 font-bold;
+  }
 }

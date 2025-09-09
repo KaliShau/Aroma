@@ -12,6 +12,6 @@ export type TypeCoffee = {
   imageUrl: string
   isAvailable: boolean
 
-  categoryId: string
-  category: TypeCategoryCoffee
+  categoryCoffeeId: string
+  categoryCoffee: TypeCategoryCoffee
 }

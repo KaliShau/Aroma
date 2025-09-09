@@ -1,0 +1,69 @@
+.root {
+  @apply bg-transparent text-brown;
+}
+
+.control {
+  @apply border-2 border-brown rounded-default bg-transparent  !important;
+
+  &:hover {
+    @apply border-orange outline-none !important;
+  }
+
+  &--is-focused {
+    @apply border-orange outline-none ring-0 shadow-none !important;
+    box-shadow: none !important;
+  }
+}
+
+.control:focus-within {
+  @apply outline-none ring-0 !important;
+}
+
+.menu {
+  @apply bg-white p-0 border-brown !important;
+  border: 2px solid !important;
+}
+
+.menuList {
+  @apply p-0 !important;
+}
+
+.option {
+  @apply bg-white text-brown font-bold !important;
+
+  &:hover {
+    @apply bg-orange/60 !important;
+  }
+
+  &--is-focused {
+    @apply bg-brown text-white !important;
+  }
+}
+
+.singleValue {
+  @apply font-bold text-brown !important;
+}
+
+.dropdownIndicator {
+  @apply text-brown !important;
+
+  &:hover {
+    @apply text-orange !important;
+  }
+}
+
+.indicatorSeparator {
+  @apply bg-brown !important;
+}
+
+.valueContainer {
+  @apply px-2 !important;
+}
+
+.placeholder {
+  @apply text-brown/70 !important;
+}
+
+.input {
+  @apply text-brown !important;
+}

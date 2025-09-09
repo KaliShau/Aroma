@@ -65,5 +65,5 @@
 }
 
 .wrapper {
-  @apply absolute bg-white/30 w-full h-full  top-0 left-0  rounded-default  z-1;
+  @apply absolute bg-white/30 w-full h-full  top-0 left-0  rounded-default  z-1 flex justify-center;
 }

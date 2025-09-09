@@ -13,7 +13,7 @@ type CoffeeCartHome = {
 
 export const CoffeeCardHome: FC<CoffeeCartHome> = ({ coffee }) => {
   return (
-    <Link href={PUBLIC_ROUTES.menu()} className={styles.root}>
+    <Link href={PUBLIC_ROUTES.menu(coffee.slug)} className={styles.root}>
       <Image src={coffee.imageUrl} alt={coffee.name} width={390} height={390} />
       <h3>{coffee.name}</h3>
       <p>{coffee.description}</p>

@@ -1,0 +1,27 @@
+import Select from 'react-select'
+
+import styles from './quantity-selector.module.scss'
+
+export const QuantitySelector = () => {
+  const options = Array.from({ length: 10 }, (_, i) => ({
+    value: i + 1,
+    label: (i + 1).toString()
+  }))
+
+  return (
+    <Select
+      classNamePrefix='quantity'
+      options={options}
+      defaultValue={options[0]}
+      onChange={selected => console.log(selected?.value)}
+      isSearchable={false}
+      classNames={{
+        control: () => styles.control,
+        menu: () => styles.menu,
+        option: () => styles.option,
+        singleValue: () => styles.singleValue,
+        dropdownIndicator: () => styles.dropdownIndicator
+      }}
+    />
+  )
+}
