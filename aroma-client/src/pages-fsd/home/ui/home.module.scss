@@ -45,7 +45,8 @@
 
   > div {
     @apply mx-auto flex flex-wrap justify-center;
-    > a {
+
+    > button {
       @apply m-[20px];
     }
   }
@@ -58,7 +59,7 @@
     @apply font-semibold max-w-[610px] text-center;
   }
 
-  > a {
+  > button {
     @apply bg-white;
   }
 }

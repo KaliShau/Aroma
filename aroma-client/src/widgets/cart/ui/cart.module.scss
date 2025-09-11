@@ -1,0 +1,54 @@
+.root {
+  @apply fixed top-0 -right-[330px] w-[330px]  bg-beige shadow-lg text-brown z-3 transition-all duration-500 my-[25px] rounded-tl-default rounded-bl-default flex flex-col p-[25px] justify-between h-full;
+
+  height: calc(100vh - 50px);
+}
+
+.show {
+  @apply right-0 translate-x-0;
+}
+
+.overlay {
+  @apply fixed top-0 left-0 w-screen h-screen bg-black/40 z-2 opacity-0 transition-all;
+  visibility: hidden;
+}
+
+.overlayShow {
+  @apply opacity-100;
+  visibility: visible;
+}
+
+.main {
+  @apply flex flex-col gap-[10px] h-full;
+  > h2 {
+    @apply font-extrabold text-2xl text-orange;
+  }
+}
+
+.content {
+  @apply max-h-[650px] overflow-y-auto overflow-x-hidden flex flex-col gap-[10px];
+}
+
+.footer {
+  @apply mt-auto p-[25px] bg-white/40 rounded-default;
+
+  > h3 {
+    @apply font-extrabold text-2xl text-orange;
+  }
+
+  > p {
+    @apply text-sm font-bold flex items-center gap-1;
+
+    > span {
+      @apply text-orange text-lg;
+    }
+  }
+
+  > button {
+    @apply w-full flex justify-center shadow-none bg-orange text-beige;
+  }
+}
+
+.empty {
+  @apply font-bold;
+}

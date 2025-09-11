@@ -9,11 +9,18 @@ export const API_ENDPOINTS = {
   profile: () => API_ENDPOINTS.root('/user/profile'),
 
   getCoffeeRandom: () => API_ENDPOINTS.root('/coffee/random'),
-  getCoffeeAll: (page: number, category?: string, search?: string) =>
+  getCoffeeAll: (
+    page: number,
+    category?: string,
+    search?: string,
+    limit: string = '6'
+  ) =>
     API_ENDPOINTS.root(
-      `/coffee?page=${page}&category=${category}&search=${search}`
+      `/coffee?page=${page}&category=${category}&search=${search}&limit=${limit}`
     ),
   getCoffeeBySlug: (slug: string) => API_ENDPOINTS.root(`/coffee/${slug}`),
+  getCoffeeById: (id: string) => API_ENDPOINTS.root(`/coffee/id/${id}`),
+  getCoffeeByIds: () => API_ENDPOINTS.root(`/coffee/by-ids`),
 
   getCategoryCoffeeAll: () => API_ENDPOINTS.root('/category-coffee')
 }

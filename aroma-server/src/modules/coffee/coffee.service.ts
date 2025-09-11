@@ -97,11 +97,28 @@ export class CoffeeService {
   `
   }
 
+  async getByIds(ids: string[]) {
+    if (!ids || ids.length === 0) {
+      return []
+    }
+
+    return this.prisma.coffee.findMany({
+      where: {
+        id: {
+          in: ids,
+        },
+      },
+      include: {
+        categoryCoffee: true,
+      },
+    })
+  }
+
   async getAll(query: PaginationCoffeeDto) {
     const { page = 1, limit = 6, search, category, isAvailable } = query
 
     const skip = (page - 1) * limit
-    const take = limit
+    const take = +limit
 
     const where: any = {}
 

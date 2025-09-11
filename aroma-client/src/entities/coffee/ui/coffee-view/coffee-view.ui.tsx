@@ -1,15 +1,20 @@
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useRouter } from 'next/navigation'
 import { FC, useEffect, useRef } from 'react'
 
+import { TypeCartItem } from '@/shared/models/cart-item.type'
+
 import { TypeCoffee } from '../../model/coffee.type'
 import styles from './coffee-view.module.scss'
+import { CoffeeSimilar } from './similar.ui'
 import { CoffeeViewTopBar } from './top-bar.ui'
 
 type CoffeeCartMenu = {
   coffee: TypeCoffee
+  addItem: ActionCreatorWithPayload<TypeCartItem>
 }
 
-export const CoffeeView: FC<CoffeeCartMenu> = ({ coffee }) => {
+export const CoffeeView: FC<CoffeeCartMenu> = ({ coffee, addItem }) => {
   const ref = useRef<HTMLDivElement | null>(null)
   const router = useRouter()
 
@@ -32,7 +37,8 @@ export const CoffeeView: FC<CoffeeCartMenu> = ({ coffee }) => {
 
   return (
     <div className={styles.root} ref={ref}>
-      <CoffeeViewTopBar coffee={coffee} onClose={onClose} />
+      <CoffeeViewTopBar addItem={addItem} coffee={coffee} onClose={onClose} />
+      <CoffeeSimilar category={coffee.categoryCoffee.slug} />
     </div>
   )
 }

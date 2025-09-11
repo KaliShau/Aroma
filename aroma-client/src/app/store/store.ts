@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import {
   FLUSH,
   PAUSE,
@@ -11,7 +11,9 @@ import {
 } from 'redux-persist'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
-import { settingCombineReducer } from '@/entities/setting'
+import { cartReducer } from '@/widgets/cart'
+
+import { appearanceReducer } from '@/entities/setting'
 
 const createNoopStorage = () => {
   return {
@@ -32,13 +34,18 @@ const storage =
     ? createWebStorage('local')
     : createNoopStorage()
 
+const rootReducer = combineReducers({
+  appearance: appearanceReducer,
+  cart: cartReducer
+})
+
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['appearance']
+  whitelist: ['appearance', 'cart']
 }
 
-const persistedReducer = persistReducer(persistConfig, settingCombineReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,

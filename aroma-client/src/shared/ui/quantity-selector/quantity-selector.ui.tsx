@@ -1,8 +1,13 @@
+import { FC } from 'react'
 import Select from 'react-select'
 
 import styles from './quantity-selector.module.scss'
+import { TypeQuantitySelector } from './quantity-selector.type'
 
-export const QuantitySelector = () => {
+export const QuantitySelector: FC<TypeQuantitySelector> = ({
+  quantity,
+  setQuantity
+}) => {
   const options = Array.from({ length: 10 }, (_, i) => ({
     value: i + 1,
     label: (i + 1).toString()
@@ -13,7 +18,8 @@ export const QuantitySelector = () => {
       classNamePrefix='quantity'
       options={options}
       defaultValue={options[0]}
-      onChange={selected => console.log(selected?.value)}
+      value={{ label: quantity.toString(), value: quantity }}
+      onChange={selected => setQuantity(selected?.value || 1)}
       isSearchable={false}
       classNames={{
         control: () => styles.control,

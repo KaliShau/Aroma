@@ -2,11 +2,6 @@ import { CustomerCard } from '@/entities/customer'
 import { TypeCustomer } from '@/entities/customer/model/customer.type'
 import { EnumUserRole } from '@/entities/user/model/user.type'
 
-import Circle from '@/shared/assets/icons/circle.svg'
-import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
-import { EnumModelLink } from '@/shared/ui/link/link.type'
-import { Link } from '@/shared/ui/link/link.ui'
-
 import styles from './home.module.scss'
 
 const Customers: TypeCustomer[] = [
@@ -15,7 +10,7 @@ const Customers: TypeCustomer[] = [
     updatedAt: new Date(),
     id: 'gafsddsfddfgdfgs',
     rating: 4.5,
-    text: '"This coffee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t complete  without it. Highly recommend!"',
+    text: '"This coffee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t cofee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t cofee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t cofee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t complete  without it. Highly recommend!"',
     creator: {
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -117,10 +112,6 @@ export const OurCustomers = () => {
         {Customers &&
           Customers.map(item => <CustomerCard customer={item} key={item.id} />)}
       </div>
-
-      <Link href={PUBLIC_ROUTES.customers()} model={EnumModelLink.fill}>
-        VIEW OTHERS <Circle />
-      </Link>
     </div>
   )
 }

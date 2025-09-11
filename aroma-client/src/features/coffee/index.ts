@@ -1,3 +1,7 @@
 export { CoffeeService } from './services/coffee.service'
-export { useCoffeeBySlug } from './hooks/coffee-by-slug'
+export { useCoffeeBySlug } from './hooks/coffee-by-slug.hook'
 export { useCoffeeRandom } from './hooks/coffee-random.hook'
+export { useCoffeeAll } from './hooks/coffee-all.hook'
+export { useCoffeeById } from './hooks/coffee-by-id.hook'
+export { useCoffeeByIds } from './hooks/coffee-by-ids.hook'
+export type { TypePaginateAllCoffees } from './model/paginate.type'

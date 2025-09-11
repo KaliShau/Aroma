@@ -28,6 +28,11 @@ export class CoffeeController {
     return this.coffeeService.getRandom(limit)
   }
 
+  @Post('by-ids')
+  async getByIdsPost(@Body() body: { ids: string[] }) {
+    return this.coffeeService.getByIds(body.ids || [])
+  }
+
   @UsePipes(new ValidationPipe())
   @Auth('admin')
   @Post()
@@ -40,8 +45,13 @@ export class CoffeeController {
     return this.coffeeService.getBySlug(slug)
   }
 
+  @Get('id/:id')
+  async getById(@Param('id') id: string) {
+    return this.coffeeService.getById(id)
+  }
+
   @Auth('admin')
-  @Delete(':id')
+  @Delete('delete/:id')
   async delete(@Param('id') id: string) {
     return this.coffeeService.delete(id)
   }

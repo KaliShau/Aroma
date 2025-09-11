@@ -1,0 +1,27 @@
+meta {
+  name: by id
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{api}}/coffee/id/0158530b-d4de-4e4e-bea9-fd40ce5aba4a
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Doppio",
+    "slug": "doppio",
+    "description": "A double shot of espresso. Twice the strength and volume of a regular espresso for a more intense coffee experience.",
+    "price": "140.00",
+    "imageUrl": "/uploads/coffees/1757243733961-doppio.png.png",
+    "isAvailable": true,
+    "categoryCoffeeId": "58c8ec15-f1b7-4072-a3ed-80593c60e125"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

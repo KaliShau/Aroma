@@ -1,7 +1,7 @@
 .root {
-  @apply flex bg-white/40  rounded-default text-brown fixed z-1 p-[25px] mt-[100px] ml-[25px] mr-[50px] max-w-[1340px]  shadow;
+  @apply flex bg-white/40  rounded-default text-brown fixed z-1 p-[25px] mt-[100px] mx-[25px] max-w-[1340px]  shadow flex-col;
 
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(10px);
 }
 
@@ -62,5 +62,39 @@
 
   .opacity {
     @apply text-brown/70 font-bold;
+  }
+}
+
+.similar {
+  > h3 {
+    @apply font-bold text-2xl mt-2;
+  }
+
+  > div {
+    @apply flex gap-[10px];
+
+    > a {
+      @apply w-[250px] h-[319px] gap-1;
+
+      > img {
+        @apply w-[185px] h-[185px];
+      }
+
+      h3 {
+        @apply text-xl;
+      }
+
+      p {
+        @apply text-sm;
+      }
+    }
+  }
+}
+
+.threeDots {
+  @apply w-[250px] h-[319px] flex justify-center items-center bg-white/40 rounded-default shadow-lg transition-all text-orange font-extrabold text-[96px];
+
+  &:hover {
+    @apply scale-105;
   }
 }

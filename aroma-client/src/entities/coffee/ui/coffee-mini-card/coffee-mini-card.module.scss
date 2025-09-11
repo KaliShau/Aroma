@@ -1,0 +1,86 @@
+.root {
+  @apply text-brown max-w-[280px] h-full p-[25px] bg-white/40 rounded-default transition-all flex-col relative  !important;
+
+  > div {
+    @apply flex items-center justify-between w-full;
+
+    img {
+      @apply w-[62px] h-[62px];
+    }
+
+    h3 {
+      @apply text-[28px] font-extrabold text-orange;
+    }
+
+    span {
+      @apply font-bold;
+    }
+  }
+
+  &:hover {
+    @apply bg-white/80 !important;
+  }
+}
+
+.content {
+  > div {
+    @apply flex justify-between items-center;
+    > h3 {
+      @apply text-lg;
+    }
+
+    > span {
+      @apply text-sm font-bold;
+    }
+  }
+
+  > p {
+    @apply font-bold text-[10px];
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.value {
+  > div:first-child {
+    @apply flex gap-[10px];
+
+    button {
+      @apply text-[13px] font-bold px-2 py-[1px] rounded-default transition-colors;
+
+      &:hover {
+        @apply bg-orange/80;
+      }
+
+      &:nth-child(2):hover {
+        @apply bg-transparent;
+      }
+    }
+  }
+
+  > div:last-child {
+    @apply flex gap-[4px] text-[13px] font-bold;
+
+    > span {
+      @apply text-[14px] text-orange;
+    }
+  }
+}
+
+.exit {
+  @apply absolute top-2 right-2;
+
+  svg {
+    @apply transition-all;
+  }
+
+  &:hover {
+    path {
+      @apply fill-orange;
+    }
+  }
+}

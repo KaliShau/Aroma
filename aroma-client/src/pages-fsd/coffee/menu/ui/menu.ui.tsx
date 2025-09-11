@@ -2,9 +2,10 @@
 
 import { FC } from 'react'
 
+import { addItem } from '@/widgets/cart'
 import { Footer } from '@/widgets/footer'
 
-import { useCoffeeBySlug } from '@/features/coffee'
+import { TypePaginateAllCoffees, useCoffeeBySlug } from '@/features/coffee'
 
 import { TypeCategoryCoffee } from '@/entities/category-coffee'
 import { CoffeeCardMenu, CoffeeView } from '@/entities/coffee'
@@ -12,7 +13,6 @@ import { CoffeeCardMenu, CoffeeView } from '@/entities/coffee'
 import bg from '@/shared/assets/images/brown-line.png'
 import { HeaderImage } from '@/shared/ui/header-image/header-image.ui'
 
-import { TypePaginateAllCoffees } from '../model/paginate.type'
 import { CategoryCoffeeMenu } from './filters.ui'
 import styles from './menu.module.scss'
 import { MenuPaginate } from './paginate.ui'
@@ -35,8 +35,7 @@ export const Menu: FC<TypeMenu> = ({ data, pagination, category, coffee }) => {
       <HeaderImage image={bg} />
       {coffee && coffeeDetail && (
         <div className={styles.wrapper}>
-          {' '}
-          <CoffeeView coffee={coffeeDetail} />{' '}
+          <CoffeeView addItem={addItem} coffee={coffeeDetail} />
         </div>
       )}
 

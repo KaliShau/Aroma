@@ -6,11 +6,11 @@ type TypeInitialState = {
 }
 
 const initialState: TypeInitialState = {
-  isDynamicNavigationBar: false,
-  isTransparentNavigationBar: true
+  isDynamicNavigationBar: true,
+  isTransparentNavigationBar: false
 }
 
-export const appearanceCounter = createSlice({
+export const appearanceSlice = createSlice({
   name: 'appearance',
   initialState,
   reducers: {
@@ -24,5 +24,5 @@ export const appearanceCounter = createSlice({
 })
 
 export const { setIsDynamicNavigationBar, setIsTransparentNavigationBar } =
-  appearanceCounter.actions
-export default appearanceCounter.reducer
+  appearanceSlice.actions
+export const appearanceReducer = appearanceSlice.reducer

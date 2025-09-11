@@ -1,0 +1,21 @@
+meta {
+  name: by ids
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{api}}/coffee?page=1&search&category
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  search: 
+  category: 
+}
+
+settings {
+  encodeUrl: true
+}

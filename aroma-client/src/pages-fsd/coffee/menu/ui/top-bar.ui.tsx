@@ -19,7 +19,6 @@ export const MenuTopBar = () => {
   const { register, handleSubmit } = useForm<TypeSearchTerm>()
   const searchParams = useSearchParams()
   const router = useRouter()
-  const currentSearchTerm = searchParams.get('search')
 
   const onSubmit: SubmitHandler<TypeSearchTerm> = data => {
     const params = new URLSearchParams(searchParams.toString())

@@ -1,7 +1,5 @@
 import Image from 'next/image'
 
-import Cart from '@/shared/assets/icons/cart.svg'
-import Circle from '@/shared/assets/icons/circle.svg'
 import coffee from '@/shared/assets/icons/coffee.png'
 import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
 import { EnumModelLink, TypeLink } from '@/shared/ui/link/link.type'
@@ -33,21 +31,3 @@ export const NAV_HOME: TypeLink = {
     </>
   )
 }
-
-export const NAV_RIGHT_BAR: TypeLink[] = [
-  {
-    href: PUBLIC_ROUTES.menu(),
-    children: (
-      <>
-        BREW YOUR FIRST CUP
-        <Circle />
-      </>
-    ),
-    model: EnumModelLink.fill
-  },
-  {
-    children: <Cart />,
-    model: EnumModelLink.border,
-    isButton: true
-  }
-]
