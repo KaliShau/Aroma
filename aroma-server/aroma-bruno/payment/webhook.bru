@@ -1,0 +1,30 @@
+meta {
+  name: webhook
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{api}}/payment/webhook/yookassa
+  body: none
+  auth: inherit
+}
+
+body:json {
+  {
+    "items": [
+      {
+        "coffeeId": "26312f92-3917-4727-980f-134396ac04ef",
+        "quantity": 4
+      },
+      {
+        "coffeeId": "54a41b7e-1590-42c3-aa06-6815eb9d75a8",
+        "quantity": 1
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

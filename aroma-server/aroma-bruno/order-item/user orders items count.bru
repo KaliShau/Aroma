@@ -1,0 +1,15 @@
+meta {
+  name: user orders items count
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{api}}/order-item/count
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

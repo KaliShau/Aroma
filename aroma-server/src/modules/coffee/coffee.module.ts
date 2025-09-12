@@ -6,5 +6,6 @@ import { CategoryCoffeeService } from '../category-coffee/category-coffee.servic
 @Module({
   controllers: [CoffeeController],
   providers: [CoffeeService, CategoryCoffeeService],
+  exports: [CoffeeService],
 })
 export class CoffeeModule {}

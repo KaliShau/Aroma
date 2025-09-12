@@ -1,0 +1,21 @@
+meta {
+  name: create
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{api}}/payment/create
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "items": [{"coffeeId": "26312f92-3917-4727-980f-134396ac04ef", "quantity": 44}, {"coffeeId": "54a41b7e-1590-42c3-aa06-6815eb9d75a8", "quantity": 10}]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

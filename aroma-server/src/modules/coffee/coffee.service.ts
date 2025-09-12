@@ -30,7 +30,7 @@ export class CoffeeService {
         name: dto.name,
         description: dto.description,
         imageUrl: dto.imageUrl,
-        isAvailable: dto.isAvailable,
+        isAvailable: true,
         price: dto.price,
         slug: dto.slug,
         categoryCoffee: {
@@ -57,7 +57,7 @@ export class CoffeeService {
 
   async getBySlug(slug: string) {
     const coffee = await this.prisma.coffee.findUnique({
-      where: { slug },
+      where: { slug, isAvailable: true },
       include: {
         categoryCoffee: true,
       },
@@ -107,6 +107,7 @@ export class CoffeeService {
         id: {
           in: ids,
         },
+        isAvailable: true,
       },
       include: {
         categoryCoffee: true,
@@ -115,16 +116,12 @@ export class CoffeeService {
   }
 
   async getAll(query: PaginationCoffeeDto) {
-    const { page = 1, limit = 6, search, category, isAvailable } = query
+    const { page = 1, limit = 6, search, category } = query
 
     const skip = (page - 1) * limit
     const take = +limit
 
     const where: any = {}
-
-    if (isAvailable !== undefined) {
-      where.isAvailable = isAvailable
-    }
 
     if (category) {
       where.categoryCoffee = {
@@ -151,7 +148,7 @@ export class CoffeeService {
 
     const [coffees, total] = await Promise.all([
       this.prisma.coffee.findMany({
-        where,
+        where: { isAvailable: true, ...where },
         skip,
         take,
         include: {

@@ -24,6 +24,7 @@ model User {
   role EnumUserRole
 
   verification Verification?
+  orders       Order[]
 
   @@map("user")
 }
@@ -41,7 +42,7 @@ model Verification {
   code      String?
   expiresAt DateTime? @map("expires_at")
 
-  userId String @unique
+  userId String @unique @map("user_id")
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("verification")
@@ -64,6 +65,8 @@ model Coffee {
   categoryCoffee   CategoryCoffee? @relation(fields: [categoryCoffeeId], references: [id])
   categoryCoffeeId String?         @map("category_coffee_id")
 
+  OrderItem OrderItem[]
+
   @@map("coffee")
 }
 
@@ -79,4 +82,46 @@ model CategoryCoffee {
   coffees Coffee[]
 
   @@map("category_coffee")
+}
+
+model Order {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  total     Decimal
+  status    OrderStatus @default(PENDING)
+  paymentId String? @unique
+
+  items OrderItem[]
+
+  User   User?   @relation(fields: [userId], references: [id])
+  userId String? @map("user_id")
+
+  @@map("order")
+}
+
+model OrderItem {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  quantity Int
+  price    Decimal
+  total    Decimal
+
+  order   Order?  @relation(fields: [orderId], references: [id])
+  orderId String? @map("order_id")
+
+  coffee   Coffee? @relation(fields: [coffeeId], references: [id])
+  coffeeId String? @map("coffee_id")
+
+  @@map("order_item")
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+  FAILED
 }

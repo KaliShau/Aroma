@@ -17,9 +17,6 @@ export class CreateCoffeeDto {
   @IsString()
   imageUrl: string
 
-  @IsBoolean()
-  isAvailable: boolean
-
   @IsString()
   categoryCoffeeId: string
 }
