@@ -23,7 +23,9 @@ export const PRIVATE_ROUTES = {
 
   signOut: () => PUBLIC_ROUTES.root(`/sign-out`),
 
-  profile: () => PUBLIC_ROUTES.root(`/profile`)
+  profile: () => PUBLIC_ROUTES.root(`/profile`),
+
+  orders: () => PUBLIC_ROUTES.root(`/orders`)
 }
 
 export const GUEST_ROUTES = {

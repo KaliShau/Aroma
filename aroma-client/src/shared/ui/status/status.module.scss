@@ -1,0 +1,15 @@
+.root {
+  @apply rounded-default px-[20px] py-[10px];
+}
+
+.completed {
+  @apply bg-status-success-lite border-2 border-status-success text-status-success;
+}
+
+.failed {
+  @apply bg-status-failed-lite border-2 border-status-failed text-status-failed;
+}
+
+.pending {
+  @apply bg-status-pending-lite border-2 border-status-pending text-status-pending;
+}

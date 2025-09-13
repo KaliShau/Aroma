@@ -1,0 +1,71 @@
+.root {
+  @apply bg-white/60 w-full rounded-default h-full text-xl relative;
+
+  table-layout: fixed;
+
+  th {
+    @apply px-[25px] py-[25px] text-center font-semibold;
+  }
+
+  td {
+    @apply px-[25px] py-[10px] text-center font-semibold;
+  }
+
+  .id {
+    @apply cursor-help relative decoration-dotted underline;
+  }
+
+  thead {
+    position: relative;
+
+    &::before {
+      content: '';
+      @apply absolute top-0 left-0 right-0 h-full bg-white text-brown rounded-tr-default rounded-tl-default -z-1;
+    }
+
+    th {
+      @apply bg-transparent;
+    }
+  }
+
+  tbody {
+    tr {
+      @apply transition-colors border-b border-brown/40;
+
+      &:hover {
+        @apply bg-white/70;
+      }
+
+      &:last-child {
+        @apply w-full border-none;
+
+        > td {
+          > button {
+            @apply w-full px-[25px] py-[10px];
+          }
+        }
+      }
+    }
+  }
+}
+
+.tooltip {
+  @apply bg-brown text-white px-3 py-2 rounded-md text-sm fixed z-2 whitespace-nowrap;
+  font-family: monospace;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.tooltipArrow {
+  @apply absolute -bottom-1 left-1/2 translate-x-1/2 w-0 h-0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-90%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-100%);
+  }
+}

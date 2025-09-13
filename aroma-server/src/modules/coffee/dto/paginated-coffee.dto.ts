@@ -21,9 +21,4 @@ export class PaginationCoffeeDto {
   @IsOptional()
   @IsString()
   category?: string
-
-  @IsOptional()
-  @Type(() => Boolean)
-  @IsBoolean()
-  isAvailable?: boolean
 }

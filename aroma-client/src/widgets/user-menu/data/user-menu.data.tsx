@@ -1,5 +1,6 @@
 import Docs from '@/shared/assets/icons/docs.svg'
 import LogOut from '@/shared/assets/icons/log-out.svg'
+import Orders from '@/shared/assets/icons/orders.svg'
 import Settings from '@/shared/assets/icons/settings.svg'
 import SignIn from '@/shared/assets/icons/sign-in.svg'
 import {
@@ -38,6 +39,16 @@ export const USER_DATA_MENU: TypeItemUserDataMenu[] = [
     ),
     access: EnumAccessItemUserDataMenu.all,
     href: PUBLIC_ROUTES.documentations()
+  },
+
+  {
+    children: (
+      <>
+        Orders <Orders />
+      </>
+    ),
+    access: EnumAccessItemUserDataMenu.private,
+    href: PRIVATE_ROUTES.orders()
   },
   {
     children: (

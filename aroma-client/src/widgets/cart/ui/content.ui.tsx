@@ -1,13 +1,15 @@
 'use client'
 
 import { Dispatch, FC, SetStateAction } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { RootState } from '@/app/store/store'
 
 import { useCoffeeById } from '@/features/coffee'
 
 import { CoffeeMiniCard } from '@/entities/coffee/ui/coffee-mini-card/coffee-mini-card.ui'
+
+import Cross from '@/shared/assets/icons/cross.svg'
 
 import { removeItem, updateQuantity } from '../lib/cart.slice'
 import styles from './cart.module.scss'
@@ -20,9 +22,18 @@ const CartItem: FC<
   TypeSetIsShowCart & { itemId: string; quantity: number }
 > = ({ itemId, setIsShowCart, quantity }) => {
   const { data, isLoading } = useCoffeeById(itemId)
+  const dispatch = useDispatch()
 
-  if (isLoading) return <div>Loading</div>
-  if (!data) return <div>Товар не найден</div>
+  if (isLoading) return <div className={styles.wrapper}>Loading</div>
+  if (!data)
+    return (
+      <div className={styles.wrapper}>
+        Товар не найден
+        <button onClick={() => dispatch(removeItem(itemId))}>
+          <Cross />
+        </button>
+      </div>
+    )
 
   return (
     <CoffeeMiniCard

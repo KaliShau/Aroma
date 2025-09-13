@@ -47,8 +47,24 @@
   > button {
     @apply w-full flex justify-center shadow-none bg-orange text-beige;
   }
+
+  > a {
+    @apply w-full flex justify-center shadow-none bg-orange text-beige;
+  }
 }
 
 .empty {
   @apply font-bold;
+}
+
+.wrapper {
+  @apply flex gap-3 p-[10px] w-full bg-white/40 rounded-default items-center justify-between;
+
+  button:hover {
+    @apply transition-all;
+
+    path {
+      @apply fill-orange;
+    }
+  }
 }

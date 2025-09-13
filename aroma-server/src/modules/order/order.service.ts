@@ -2,12 +2,13 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { OrderItem, OrderStatus } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library'
 import { PrismaService } from 'src/core/db/prisma.service'
+import { PaginationOrderDto } from './dto/paginated-order.dto'
 
 @Injectable()
 export class OrderService {
   constructor(private prisma: PrismaService) {}
 
-  async createOrder(userId: string, items: OrderItem[], total: Decimal) {
+  async create(userId: string, items: OrderItem[], total: Decimal) {
     return this.prisma.order.create({
       data: {
         total,
@@ -32,7 +33,7 @@ export class OrderService {
     })
   }
 
-  async getOrderById(orderId: string, userId: string) {
+  async getById(orderId: string, userId: string) {
     const order = await this.prisma.order.findUnique({
       where: { id: orderId, userId },
       include: {
@@ -51,7 +52,7 @@ export class OrderService {
     return order
   }
 
-  async getOrderByPaymentId(paymentId: string) {
+  async getByPaymentId(paymentId: string) {
     const order = await this.prisma.order.findUnique({
       where: { paymentId },
       include: {
@@ -71,11 +72,7 @@ export class OrderService {
     return order
   }
 
-  async updateOrderStatus(
-    orderId: string,
-    status: OrderStatus,
-    paymentId?: string
-  ) {
+  async updateStatus(orderId: string, status: OrderStatus, paymentId?: string) {
     return this.prisma.order.update({
       where: { id: orderId },
       data: {
@@ -85,25 +82,51 @@ export class OrderService {
     })
   }
 
-  async getUserOrders(userId: string) {
-    return this.prisma.order.findMany({
-      where: { userId },
-      include: {
-        items: {
-          include: {
-            coffee: true,
-          },
-        },
-      },
-      orderBy: { createdAt: 'desc' },
-    })
-  }
-
-  async getCountUserOrders(userId: string) {
+  async getCountUser(userId: string) {
     const count = await this.prisma.order.count({
       where: { userId },
     })
 
     return { count }
+  }
+
+  async getByUser(query: PaginationOrderDto, userId: string) {
+    const { page = 1, limit = 10 } = query
+
+    const skip = (page - 1) * limit
+    const take = +limit
+
+    const [orders, total] = await Promise.all([
+      this.prisma.order.findMany({
+        where: { userId },
+        skip,
+        take,
+        include: {
+          _count: {
+            select: { items: true },
+          },
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+      }),
+      this.prisma.order.count({ where: { userId } }),
+    ])
+
+    const totalPages = Math.ceil(total / limit)
+    const hasNext = page < totalPages
+    const hasPrev = page > 1
+
+    return {
+      data: orders,
+      pagination: {
+        page: Number(page),
+        limit: Number(limit),
+        total,
+        totalPages,
+        hasNext,
+        hasPrev,
+      },
+    }
   }
 }

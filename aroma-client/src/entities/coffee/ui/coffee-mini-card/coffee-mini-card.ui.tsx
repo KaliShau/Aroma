@@ -10,6 +10,7 @@ import { TypeCartItem } from '@/shared/models/cart-item.type'
 import { Link } from '@/shared/ui/link/link.ui'
 
 import { TypeCoffee } from '../../model/coffee.type'
+import { UpdateQuantity } from '../update-quantity.ui'
 import styles from './coffee-mini-card.module.scss'
 
 type CoffeeMiniCard = {
@@ -30,25 +31,6 @@ export const CoffeeMiniCard: FC<CoffeeMiniCard> = ({
   const dispatch = useDispatch()
   const handleClick = () => {
     onClick?.()
-  }
-
-  const handleButtonClick = (
-    e: React.MouseEvent,
-    action: 'increment' | 'decrement'
-  ) => {
-    e.preventDefault()
-    e.stopPropagation()
-
-    if (action === 'increment') {
-      if (quantity >= 100) return toast.error('You have exceeded the limit!')
-      dispatch(updateQuantity({ id: coffee.id, quantity: quantity + 1 }))
-    } else {
-      if (quantity <= 1) {
-        dispatch(removeItem(coffee.id))
-        return toast.success('Item has been successfully deleted!')
-      }
-      dispatch(updateQuantity({ id: coffee.id, quantity: quantity - 1 }))
-    }
   }
 
   const removeClick = (e: React.MouseEvent) => {
@@ -80,11 +62,12 @@ export const CoffeeMiniCard: FC<CoffeeMiniCard> = ({
         </div>
       </div>
       <div className={styles.value}>
-        <div>
-          <button onClick={e => handleButtonClick(e, 'decrement')}>-</button>
-          <button>{quantity}</button>
-          <button onClick={e => handleButtonClick(e, 'increment')}>+</button>
-        </div>
+        <UpdateQuantity
+          coffee={coffee}
+          quantity={quantity}
+          removeItem={removeItem}
+          updateQuantity={updateQuantity}
+        />
         <div>
           Total: <span>{quantity * coffee.price} ₽</span>
         </div>

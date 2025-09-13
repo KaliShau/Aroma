@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{api}}/order
+  url: {{api}}/order?limit=2
   body: none
   auth: inherit
+}
+
+params:query {
+  limit: 2
 }
 
 settings {

@@ -2,7 +2,7 @@
 
 import { FC } from 'react'
 
-import { addItem } from '@/widgets/cart'
+import { addItem, removeItem, updateQuantity } from '@/widgets/cart'
 import { Footer } from '@/widgets/footer'
 
 import { TypePaginateAllCoffees, useCoffeeBySlug } from '@/features/coffee'
@@ -35,7 +35,12 @@ export const Menu: FC<TypeMenu> = ({ data, pagination, category, coffee }) => {
       <HeaderImage image={bg} />
       {coffee && coffeeDetail && (
         <div className={styles.wrapper}>
-          <CoffeeView addItem={addItem} coffee={coffeeDetail} />
+          <CoffeeView
+            addItem={addItem}
+            coffee={coffeeDetail}
+            removeItem={removeItem}
+            updateQuantity={updateQuantity}
+          />
         </div>
       )}
 

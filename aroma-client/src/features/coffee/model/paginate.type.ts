@@ -1,13 +1,6 @@
 import { TypeCoffee } from '@/entities/coffee'
 
-type TypePaginate = {
-  hasNext: boolean
-  hasPrev: boolean
-  limit: number
-  page: number
-  total: number
-  totalPages: number
-}
+import { TypePaginate } from '@/shared/models/paginate.type'
 
 export type TypePaginateAllCoffees = {
   data: TypeCoffee[]

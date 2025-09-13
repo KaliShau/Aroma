@@ -51,11 +51,11 @@
   .cardButton {
     @apply m-[30px] justify-normal gap-[10px];
 
-    > button {
+    button {
       @apply bg-brown text-beige  shadow-none text-2xl px-[70px];
 
       &:hover {
-        @apply bg-orange;
+        @apply bg-orange text-brown !important;
       }
     }
   }

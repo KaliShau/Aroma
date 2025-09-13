@@ -7,7 +7,7 @@ import styles from './menu.module.scss'
 export const MenuDocumentations = () => {
   return (
     <div className={styles.root}>
-      <h3>Documentation of our site</h3>
+      <h2>Documentation of our site</h2>
       {DOCUMENTATIONS_MENU_DATA.map(item => (
         <Link href={item.href} key={item.href}>
           <div>

@@ -12,10 +12,13 @@ import { Link } from '@/shared/ui/link/link.ui'
 import { QuantitySelector } from '@/shared/ui/quantity-selector/quantity-selector.ui'
 
 import { TypeCoffee } from '../../model/coffee.type'
+import { UpdateQuantity } from '../update-quantity.ui'
 import styles from './coffee-view.module.scss'
 
 type TypeCoffeeViewTopBar = {
   addItem: ActionCreatorWithPayload<TypeCartItem>
+  updateQuantity: ActionCreatorWithPayload<TypeCartItem>
+  removeItem: ActionCreatorWithPayload<string>
   coffee: TypeCoffee
   onClose: () => void
 }
@@ -23,16 +26,18 @@ type TypeCoffeeViewTopBar = {
 export const CoffeeViewTopBar: FC<TypeCoffeeViewTopBar> = ({
   coffee,
   onClose,
-  addItem
+  addItem,
+  removeItem,
+  updateQuantity
 }) => {
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState<number>(1)
 
   const items = useSelector((state: RootState) => state.cart.items)
-  const item = items.find(value => value.id === coffee.id)
+  const currentItem = items.find(value => value.id === coffee.id)
 
-  const handleClick = () => {
-    if (item && item?.quantity >= 100) {
+  const createCartItem = () => {
+    if (currentItem && currentItem?.quantity >= 100) {
       return toast.error('You have exceeded the limit!')
     }
 
@@ -62,14 +67,25 @@ export const CoffeeViewTopBar: FC<TypeCoffeeViewTopBar> = ({
           Category: <span>{coffee.categoryCoffee.name}</span>
         </p>
         <div className={styles.cardButton}>
-          <Link
-            isButton={true}
-            model={EnumModelLink.fill}
-            onClick={handleClick}
-          >
-            Add to Card
-          </Link>
-          <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
+          {currentItem ? (
+            <UpdateQuantity
+              coffee={coffee}
+              quantity={currentItem.quantity}
+              removeItem={removeItem}
+              updateQuantity={updateQuantity}
+            />
+          ) : (
+            <>
+              <Link
+                isButton={true}
+                model={EnumModelLink.fill}
+                onClick={createCartItem}
+              >
+                Add to Card
+              </Link>
+              <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
+            </>
+          )}
         </div>
         <p className={styles.opacity}>
           Fresh fry. A balanced taste with a rich aroma. Ideal for espresso and

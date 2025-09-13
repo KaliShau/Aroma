@@ -12,9 +12,16 @@ import { CoffeeViewTopBar } from './top-bar.ui'
 type CoffeeCartMenu = {
   coffee: TypeCoffee
   addItem: ActionCreatorWithPayload<TypeCartItem>
+  updateQuantity: ActionCreatorWithPayload<TypeCartItem>
+  removeItem: ActionCreatorWithPayload<string>
 }
 
-export const CoffeeView: FC<CoffeeCartMenu> = ({ coffee, addItem }) => {
+export const CoffeeView: FC<CoffeeCartMenu> = ({
+  coffee,
+  addItem,
+  removeItem,
+  updateQuantity
+}) => {
   const ref = useRef<HTMLDivElement | null>(null)
   const router = useRouter()
 
@@ -37,7 +44,13 @@ export const CoffeeView: FC<CoffeeCartMenu> = ({ coffee, addItem }) => {
 
   return (
     <div className={styles.root} ref={ref}>
-      <CoffeeViewTopBar addItem={addItem} coffee={coffee} onClose={onClose} />
+      <CoffeeViewTopBar
+        addItem={addItem}
+        coffee={coffee}
+        onClose={onClose}
+        removeItem={removeItem}
+        updateQuantity={updateQuantity}
+      />
       <CoffeeSimilar category={coffee.categoryCoffee.slug} />
     </div>
   )

@@ -22,5 +22,14 @@ export const API_ENDPOINTS = {
   getCoffeeById: (id: string) => API_ENDPOINTS.root(`/coffee/id/${id}`),
   getCoffeeByIds: () => API_ENDPOINTS.root(`/coffee/by-ids`),
 
-  getCategoryCoffeeAll: () => API_ENDPOINTS.root('/category-coffee')
+  getCategoryCoffeeAll: () => API_ENDPOINTS.root('/category-coffee'),
+
+  createPayment: () => API_ENDPOINTS.root('/payment/create'),
+
+  getOrdersUser: (page: number, limit?: number) =>
+    API_ENDPOINTS.root(`/order?page=${page}&limit=${limit}`),
+  getOrderById: (id: string) => API_ENDPOINTS.root(`/order/${id}`),
+  getOrdersCountUser: () => API_ENDPOINTS.root(`/order/count`),
+
+  getOrdersItemsCountUser: () => API_ENDPOINTS.root(`/order-item/count`)
 }

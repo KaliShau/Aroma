@@ -1,7 +1,8 @@
-import { Controller, Get, Param } from '@nestjs/common'
+import { Controller, Get, Param, Query } from '@nestjs/common'
 import { OrderService } from './order.service'
 import { Auth } from '../auth/decorators/auth.decorator'
 import { User } from '../auth/decorators/user.decorator'
+import { PaginationOrderDto } from './dto/paginated-order.dto'
 
 @Controller('order')
 export class OrderController {
@@ -9,19 +10,22 @@ export class OrderController {
 
   @Auth('user')
   @Get()
-  async getAllUser(@User('id') id: string) {
-    return this.orderService.getUserOrders(id)
+  async getAllUser(
+    @User('id') userId: string,
+    @Query() query: PaginationOrderDto
+  ) {
+    return this.orderService.getByUser(query, userId)
   }
 
   @Auth('user')
   @Get('count')
   async getCountUser(@User('id') id: string) {
-    return this.orderService.getCountUserOrders(id)
+    return this.orderService.getCountUser(id)
   }
 
   @Auth('user')
   @Get(':id')
   async getOrder(@User('id') id: string, @Param('id') orderId: string) {
-    return this.orderService.getOrderById(orderId, id)
+    return this.orderService.getById(orderId, id)
   }
 }

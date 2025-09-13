@@ -28,7 +28,7 @@ export class YooKassaService {
         },
         confirmation: {
           type: 'redirect',
-          return_url: `${this.configService.get('FRONTEND_URL')}/order/success/${orderId}`,
+          return_url: `${this.configService.get('FRONTEND_URL')}/orders/success/${orderId}`,
         },
         capture: true,
         description: description,

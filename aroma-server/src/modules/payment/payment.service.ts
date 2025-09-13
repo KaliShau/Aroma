@@ -36,11 +36,7 @@ export class PaymentService {
         updatedAt: new Date(),
       }))
 
-      const order = await this.orderService.createOrder(
-        userId,
-        orderItems,
-        total
-      )
+      const order = await this.orderService.create(userId, orderItems, total)
 
       const payment = await this.yooKassaService.createPayment(
         order.id,
@@ -48,7 +44,7 @@ export class PaymentService {
         `Order coffee #${order.id}`
       )
 
-      await this.orderService.updateOrderStatus(
+      await this.orderService.updateStatus(
         order.id,
         OrderStatus.PENDING,
         payment.id
@@ -125,7 +121,7 @@ export class PaymentService {
       }
 
       return await this.prisma.$transaction(async tx => {
-        const order = await this.orderService.getOrderByPaymentId(paymentId)
+        const order = await this.orderService.getByPaymentId(paymentId)
 
         if (!order) {
           throw new NotFoundException('Order not found for this payment!')

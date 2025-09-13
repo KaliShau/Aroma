@@ -1,5 +1,5 @@
 .root {
-  @apply flex font-bold items-center gap-[10px] w-full;
+  @apply flex font-bold items-center gap-[10px] w-full transition-all rounded-default;
 
   > img,
   span {
@@ -7,6 +7,6 @@
   }
 
   &:hover {
-    @apply text-orange;
+    @apply text-orange bg-white/40;
   }
 }

@@ -1,0 +1,15 @@
+.updateQuantity {
+  @apply flex gap-[10px];
+
+  button {
+    @apply text-[13px] font-bold px-2 py-[1px] rounded-default transition-colors;
+
+    &:hover {
+      @apply bg-orange/80;
+    }
+
+    &:nth-child(2):hover {
+      @apply bg-transparent;
+    }
+  }
+}
