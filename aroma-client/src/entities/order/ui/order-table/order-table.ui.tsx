@@ -4,13 +4,8 @@ import {
   InfiniteQueryObserverResult
 } from '@tanstack/react-query'
 import { FC, useState } from 'react'
-import toast from 'react-hot-toast'
 
 import { TypePaginateUserOrders } from '@/features/order'
-
-import { Status } from '@/shared/ui/status/status.ui'
-import { formatDate } from '@/shared/utils/date.utils'
-import { truncateUUID } from '@/shared/utils/truncateUUID.utils'
 
 import { TypeOrderWithCountItems } from '../../model/order.type'
 import {
@@ -19,6 +14,7 @@ import {
   TypeOrderTableTooltip
 } from './components.ui'
 import styles from './order-table.module.scss'
+import { OrderTableItem } from './table-item.ui'
 
 type TypeOrderTable = {
   data: TypeOrderWithCountItems[]
@@ -47,31 +43,6 @@ export const OrderTable: FC<TypeOrderTable> = ({
     y: 0
   })
 
-  const handleMouseEnter = (e: React.MouseEvent, content: string) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    setTooltip({
-      isVisible: true,
-      content,
-      x: rect.left + rect.width / 2,
-      y: rect.top - 10
-    })
-  }
-
-  const handleMouseLeave = () => {
-    setTooltip({ isVisible: false, content: '', x: 0, y: 0 })
-  }
-
-  const copyTextToClipboard = async (text: string | null) => {
-    if (!text) return toast.error('Failed to copy the text!')
-
-    try {
-      await navigator.clipboard.writeText(text)
-      toast.success('The text is successfully copied to the exchange buffer!')
-    } catch (err) {
-      toast.error('Failed to copy the text!')
-    }
-  }
-
   return (
     <>
       <table className={styles.root}>
@@ -79,32 +50,7 @@ export const OrderTable: FC<TypeOrderTable> = ({
         {isLoading && <Loading />}
         <tbody>
           {data.map(item => (
-            <tr key={item.id}>
-              <th
-                className={styles.id}
-                onMouseEnter={e => handleMouseEnter(e, item.id)}
-                onMouseLeave={handleMouseLeave}
-                onClick={() => copyTextToClipboard(item.id)}
-              >
-                {truncateUUID(item.id)}
-              </th>
-              <td>{formatDate(item.createdAt)}</td>
-              <td>
-                <Status status={item.status} />
-              </td>
-              <td
-                className={styles.id}
-                onMouseEnter={e =>
-                  handleMouseEnter(e, item.paymentId || 'Not found!')
-                }
-                onMouseLeave={handleMouseLeave}
-                onClick={() => copyTextToClipboard(item.paymentId)}
-              >
-                {item.paymentId ? truncateUUID(item.paymentId) : 'Not found!'}
-              </td>
-              <td>{item.total} ₽</td>
-              <td>{item._count.items} items</td>
-            </tr>
+            <OrderTableItem item={item} setTooltip={setTooltip} key={item.id} />
           ))}
           {hasNextPage && (
             <tr>

@@ -3,6 +3,7 @@ import { OrderService } from './order.service'
 import { Auth } from '../auth/decorators/auth.decorator'
 import { User } from '../auth/decorators/user.decorator'
 import { PaginationOrderDto } from './dto/paginated-order.dto'
+import { EnumUserRole, User as UserEntity } from '@prisma/client'
 
 @Controller('order')
 export class OrderController {
@@ -25,7 +26,7 @@ export class OrderController {
 
   @Auth('user')
   @Get(':id')
-  async getOrder(@User('id') id: string, @Param('id') orderId: string) {
-    return this.orderService.getById(orderId, id)
+  async getOrder(@User() user: UserEntity, @Param('id') orderId: string) {
+    return this.orderService.getById(orderId, user)
   }
 }

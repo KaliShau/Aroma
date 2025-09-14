@@ -17,14 +17,18 @@ export const useOrdersUser = () => {
     queryKey: ['orders-user'],
     queryFn: ({ pageParam = 1 }) =>
       OrderService.getOrdersUser(pageParam, limit),
-    getNextPageParam: (lastPage, allPages) => {
-      if (lastPage.data.length < limit) return undefined
-      return allPages.length + 1
+    getNextPageParam: lastPage => {
+      if (!lastPage.pagination.hasNext) {
+        return undefined
+      }
+      return lastPage.pagination.page + 1
     },
     initialPageParam: 1
   })
 
   const allOrders = data?.pages.flatMap(page => page.data) || []
+
+  console.log(hasNextPage)
 
   return {
     data: allOrders,

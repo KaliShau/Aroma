@@ -1,5 +1,5 @@
 .root {
-  @apply bg-white/60 w-full rounded-default h-full text-xl relative;
+  @apply bg-white/60 w-full rounded-t-default h-full text-xl relative;
 
   table-layout: fixed;
 
@@ -30,7 +30,7 @@
 
   tbody {
     tr {
-      @apply transition-colors border-b border-brown/40;
+      @apply transition-colors border-b border-brown/40 cursor-pointer;
 
       &:hover {
         @apply bg-white/70;

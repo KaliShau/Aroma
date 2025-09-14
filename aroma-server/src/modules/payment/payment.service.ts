@@ -10,6 +10,7 @@ import { CoffeeService } from '../coffee/coffee.service'
 import { CreatePaymentDto } from './dto/create.dto'
 import { Decimal } from '@prisma/client/runtime/library'
 import { OrderItem, OrderStatus } from '@prisma/client'
+import { ConfigService } from '@nestjs/config'
 
 @Injectable()
 export class PaymentService {
@@ -17,7 +18,8 @@ export class PaymentService {
     private prisma: PrismaService,
     private yooKassaService: YooKassaService,
     private orderService: OrderService,
-    private coffeeService: CoffeeService
+    private coffeeService: CoffeeService,
+    private configService: ConfigService
   ) {}
 
   async createPayment(userId: string, { items }: CreatePaymentDto) {
@@ -44,10 +46,15 @@ export class PaymentService {
         `Order coffee #${order.id}`
       )
 
+      const paymentExpires = new Date(
+        Date.now() + this.configService.get('YOOKASSA_EXPIRES') * 60 * 1000
+      )
+
       await this.orderService.updateStatus(
         order.id,
         OrderStatus.PENDING,
-        payment.id
+        payment.id,
+        paymentExpires
       )
 
       return {

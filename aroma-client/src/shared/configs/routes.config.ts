@@ -25,7 +25,9 @@ export const PRIVATE_ROUTES = {
 
   profile: () => PUBLIC_ROUTES.root(`/profile`),
 
-  orders: () => PUBLIC_ROUTES.root(`/orders`)
+  orders: () => PUBLIC_ROUTES.root(`/orders`),
+  ordersSuccess: (id: string) => PUBLIC_ROUTES.root(`/orders/success/${id}`),
+  order: (id: string) => PUBLIC_ROUTES.root(`/orders/${id}`)
 }
 
 export const GUEST_ROUTES = {

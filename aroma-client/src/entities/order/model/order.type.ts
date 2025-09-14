@@ -6,7 +6,8 @@ export type TypeOrder = {
   updatedAt: Date
   total: number
   status: EnumOrderStatus
-  paymentId: string | null
+  paymentId: string
+  paymentExpires?: Date
   userId: string
 }
 

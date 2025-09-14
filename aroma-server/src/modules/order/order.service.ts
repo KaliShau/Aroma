@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
-import { OrderItem, OrderStatus } from '@prisma/client'
+import { EnumUserRole, OrderItem, OrderStatus, User } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library'
 import { PrismaService } from 'src/core/db/prisma.service'
 import { PaginationOrderDto } from './dto/paginated-order.dto'
@@ -33,9 +33,12 @@ export class OrderService {
     })
   }
 
-  async getById(orderId: string, userId: string) {
+  async getById(orderId: string, user: User) {
     const order = await this.prisma.order.findUnique({
-      where: { id: orderId, userId },
+      where: {
+        id: orderId,
+        ...(user.role !== EnumUserRole.admin && { userId: user.id }),
+      },
       include: {
         items: {
           include: {
@@ -72,12 +75,32 @@ export class OrderService {
     return order
   }
 
-  async updateStatus(orderId: string, status: OrderStatus, paymentId?: string) {
+  async updateStatus(
+    orderId: string,
+    status: OrderStatus,
+    paymentId?: string,
+    expires?: Date
+  ) {
     return this.prisma.order.update({
       where: { id: orderId },
       data: {
         status,
         ...(paymentId && { paymentId }),
+        ...(expires && { paymentExpires: expires }),
+      },
+    })
+  }
+
+  async updateManyStatusToFailed(now: Date) {
+    return await this.prisma.order.updateMany({
+      where: {
+        status: OrderStatus.PENDING,
+        paymentExpires: {
+          lt: now,
+        },
+      },
+      data: {
+        status: OrderStatus.FAILED,
       },
     })
   }

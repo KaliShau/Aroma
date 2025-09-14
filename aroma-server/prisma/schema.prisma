@@ -91,7 +91,8 @@ model Order {
 
   total     Decimal
   status    OrderStatus @default(PENDING)
-  paymentId String? @unique
+  paymentId String? @unique @map("payment_id")
+  paymentExpires DateTime? @map("payment_expires")
 
   items OrderItem[]
 

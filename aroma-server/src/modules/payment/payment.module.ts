@@ -5,6 +5,7 @@ import { YooKassaService } from './yookassa.service'
 import { OrderService } from '../order/order.service'
 import { CoffeeService } from '../coffee/coffee.service'
 import { CategoryCoffeeService } from '../category-coffee/category-coffee.service'
+import { PaymentExpirationModule } from './payment-expiration/payment-expiration.module'
 
 @Module({
   controllers: [PaymentController],
@@ -15,5 +16,6 @@ import { CategoryCoffeeService } from '../category-coffee/category-coffee.servic
     CoffeeService,
     CategoryCoffeeService,
   ],
+  imports: [PaymentExpirationModule],
 })
 export class PaymentModule {}
