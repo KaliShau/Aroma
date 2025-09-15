@@ -28,8 +28,6 @@ export const useOrdersUser = () => {
 
   const allOrders = data?.pages.flatMap(page => page.data) || []
 
-  console.log(hasNextPage)
-
   return {
     data: allOrders,
     pages: data?.pages, // Полные страницы данных

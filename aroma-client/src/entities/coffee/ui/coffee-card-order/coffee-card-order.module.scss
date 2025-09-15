@@ -1,0 +1,42 @@
+.root {
+  @apply text-brown  h-full  flex relative w-full  !important;
+
+  > div {
+    @apply flex  flex-col  w-full;
+
+    img {
+      @apply w-[62px] h-[62px];
+    }
+
+    h3 {
+      @apply text-[28px] font-extrabold text-orange;
+    }
+
+    span {
+      @apply font-bold;
+    }
+  }
+}
+
+.content {
+  > div {
+    @apply flex justify-between items-center;
+    > h3 {
+      @apply text-lg;
+    }
+
+    > span {
+      @apply text-sm font-bold;
+    }
+  }
+
+  > p {
+    @apply font-bold text-[10px];
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

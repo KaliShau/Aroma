@@ -1,0 +1,43 @@
+.root {
+  @apply text-brown flex flex-col gap-2;
+
+  > h2 {
+    @apply text-5xl font-bold;
+
+    > span {
+      @apply text-orange;
+    }
+  }
+
+  > span {
+    @apply flex font-bold gap-2 items-center;
+  }
+
+  .ordered {
+    @apply bg-white rounded-default p-[25px] flex flex-col gap-[10px] max-h-[600px] overflow-y-scroll;
+
+    > h3 {
+      @apply text-xl font-extrabold;
+    }
+  }
+
+  > div {
+    @apply flex gap-[10px];
+  }
+
+  .summary {
+    @apply bg-white w-full max-w-[420px] rounded-default p-[25px] h-fit;
+
+    > h3 {
+      @apply font-extrabold text-xl;
+    }
+
+    > p {
+      @apply text-base font-bold;
+
+      > span {
+        @apply text-orange;
+      }
+    }
+  }
+}

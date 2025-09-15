@@ -24,5 +24,5 @@ export const SignOut = () => {
     return <Loading />
   }
 
-  return <></>
+  return <Loading />
 }

@@ -1,0 +1,44 @@
+.root {
+  @apply bg-white p-[25px] rounded-default flex gap-[20px] relative;
+
+  > input {
+    display: none;
+  }
+
+  .spinner {
+    @apply w-[200px] h-[200px] flex items-center justify-center;
+
+    > svg {
+      transform: scale(6);
+      transform-origin: center;
+    }
+  }
+
+  > img {
+    @apply rounded-default cursor-pointer transition-all;
+
+    &:hover {
+      @apply brightness-75;
+    }
+  }
+
+  > div {
+    @apply flex flex-col gap-[5px];
+
+    > h3 {
+      @apply text-xl font-bold text-orange;
+    }
+
+    > p {
+      @apply font-semibold text-base;
+    }
+  }
+
+  .saveButton {
+    @apply shadow-none bg-status-success-lite border-2 border-status-success text-status-success absolute w-[200px] bottom-2 justify-center flex !important;
+
+    &:hover {
+      @apply brightness-90;
+    }
+  }
+}

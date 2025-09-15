@@ -1,3 +1,5 @@
+import { TypeCoffee } from '@/entities/coffee'
+
 export type TypeOrderItem = {
   coffeeId: string
   quantity: number
@@ -7,4 +9,5 @@ export type TypeOrderItem = {
   price: number
   total: number
   orderId: string
+  coffee: TypeCoffee
 }

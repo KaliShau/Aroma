@@ -1,0 +1,19 @@
+.root {
+  @apply border-b border-brown/40 w-full justify-between h-full p-[10px] transition-all;
+
+  .data {
+    @apply h-[62px] flex flex-col gap-[8px] justify-start;
+
+    > p {
+      @apply text-sm font-bold text-nowrap;
+
+      > span {
+        @apply text-orange;
+      }
+    }
+  }
+
+  &:hover {
+    @apply bg-beige/40 rounded-t-default;
+  }
+}

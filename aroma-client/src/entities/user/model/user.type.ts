@@ -15,7 +15,7 @@ export type TypeUser = {
   lastName?: string
 
   phone?: string
-  avatarUrl?: string
+  avatarUrl: string
 
   role: EnumUserRole
 }

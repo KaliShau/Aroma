@@ -1,3 +1,5 @@
+import { TypeOrderItem } from '@/entities/order-item'
+
 import { EnumOrderStatus } from '@/shared/models/status.type'
 
 export type TypeOrder = {
@@ -9,6 +11,7 @@ export type TypeOrder = {
   paymentId: string
   paymentExpires?: Date
   userId: string
+  items: TypeOrderItem[]
 }
 
 export type TypeOrderWithCountItems = TypeOrder & {

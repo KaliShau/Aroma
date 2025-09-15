@@ -1,0 +1,7 @@
+.root {
+  @apply pt-[6%] text-brown flex flex-col gap-[20px];
+
+  > h2 {
+    @apply text-5xl font-bold;
+  }
+}

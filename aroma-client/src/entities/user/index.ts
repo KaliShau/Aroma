@@ -1,3 +1,5 @@
 export { UserCard } from './ui/user-card/user-card.ui'
 export type { TypeUser } from './model/user.type'
 export { EnumUserRole } from './model/user.type'
+export { UserProfileCard } from './ui/user-profile-card/user-profile-card.ui'
+export { UserPersonalInfo } from './ui/user-personal-info/user-personal-info.ui'

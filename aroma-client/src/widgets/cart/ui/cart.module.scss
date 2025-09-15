@@ -9,7 +9,7 @@
 }
 
 .overlay {
-  @apply fixed top-0 left-0 w-screen h-screen bg-black/40 z-2 opacity-0 transition-all;
+  @apply fixed top-0 left-0 w-screen h-screen bg-black/40 z-2 opacity-0 transition-all items-center justify-center;
   visibility: hidden;
 }
 

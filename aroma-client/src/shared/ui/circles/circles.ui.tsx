@@ -1,8 +1,16 @@
+import { FC } from 'react'
+
+import { cn } from '@/shared/lib/cn'
+
 import styles from './circles.module.scss'
 
-export const Circles = () => {
+type TypeCircles = {
+  className?: string
+}
+
+export const Circles: FC<TypeCircles> = ({ className }) => {
   return (
-    <div className={styles.root}>
+    <div className={cn(styles.root, className)}>
       <span />
       <span />
       <span />

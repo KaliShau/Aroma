@@ -1,0 +1,56 @@
+.root {
+  @apply bg-white p-[25px] rounded-default flex flex-col gap-[20px];
+
+  .header {
+    @apply flex justify-between items-center border-b border-brown/40 py-[10px];
+
+    > button {
+      @apply shadow-none bg-brown text-beige transition-all;
+
+      &:hover {
+        @apply bg-orange;
+      }
+    }
+
+    > h3 {
+      @apply text-xl text-orange font-bold;
+    }
+  }
+
+  .gridWrapper {
+    @apply grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 1em;
+
+    > div {
+      @apply flex flex-col gap-[5px];
+
+      > p {
+        @apply font-semibold text-brown/80;
+      }
+
+      > span {
+        @apply font-bold text-brown;
+      }
+    }
+  }
+}
+
+.overlay {
+  @apply fixed top-0 left-0 w-screen h-screen bg-black/40 z-2 opacity-0 transition-all;
+  visibility: hidden;
+}
+
+.overlayShow {
+  @apply opacity-100;
+  visibility: visible;
+}
+
+.modal {
+  @apply bg-white text-brown fixed top-1/2 left-1/2 z-2 rounded-default p-[25px];
+  transform: translate(-50%, -50%);
+
+  > h3 {
+    @apply text-xl font-bold text-orange border-b border-brown/40 py-[12px];
+  }
+}

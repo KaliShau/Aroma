@@ -7,6 +7,7 @@ export const API_ENDPOINTS = {
   refresh: () => API_ENDPOINTS.root('/auth/refresh'),
 
   profile: () => API_ENDPOINTS.root('/user/profile'),
+  updateAvatar: () => API_ENDPOINTS.root('/user/update-avatar'),
 
   getCoffeeRandom: () => API_ENDPOINTS.root('/coffee/random'),
   getCoffeeAll: (
@@ -31,5 +32,8 @@ export const API_ENDPOINTS = {
   getOrderById: (id: string) => API_ENDPOINTS.root(`/order/${id}`),
   getOrdersCountUser: () => API_ENDPOINTS.root(`/order/count`),
 
-  getOrdersItemsCountUser: () => API_ENDPOINTS.root(`/order-item/count`)
+  getOrdersItemsCountUser: () => API_ENDPOINTS.root(`/order-item/count`),
+
+  saveFile: (folder: string) =>
+    API_ENDPOINTS.root(`/file/save${folder && `?folder=${folder}`}`)
 }
