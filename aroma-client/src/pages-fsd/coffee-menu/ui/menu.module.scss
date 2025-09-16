@@ -19,18 +19,6 @@
   }
 }
 
-.filters {
-  @apply text-brown flex justify-center gap-[10px];
-
-  > a {
-    @apply shadow-none bg-brown text-beige;
-  }
-
-  .active {
-    @apply bg-orange;
-  }
-}
-
 .notFound {
   @apply text-brown font-bold w-full text-center text-2xl pt-4;
 }

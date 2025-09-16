@@ -40,5 +40,7 @@ export const GUEST_ROUTES = {
 export const ADMIN_ROUTES = {
   root: (url: string = '') => `${url ? url : ''}`,
 
-  admin: () => PUBLIC_ROUTES.root('/admin')
+  dashboard: () => PUBLIC_ROUTES.root('/admin/dashboard'),
+  coffee: () => PUBLIC_ROUTES.root('/admin/coffee'),
+  category: () => PUBLIC_ROUTES.root('/admin/category')
 }

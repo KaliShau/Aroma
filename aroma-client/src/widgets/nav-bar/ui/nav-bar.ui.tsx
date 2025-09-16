@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 
 import { RootState } from '@/app/store/store'
 
+import { ADMIN_ROUTES } from '@/shared/configs/routes.config'
 import { cn } from '@/shared/lib/cn'
 import { Link } from '@/shared/ui/link/link.ui'
 

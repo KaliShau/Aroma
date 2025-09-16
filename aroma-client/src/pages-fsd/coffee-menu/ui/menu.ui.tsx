@@ -8,12 +8,12 @@ import { Footer } from '@/widgets/footer'
 import { TypePaginateAllCoffees, useCoffeeBySlug } from '@/features/coffee'
 
 import { TypeCategoryCoffee } from '@/entities/category-coffee'
+import { CategoryCarousel } from '@/entities/category-coffee/ui/category-carousel/category-carousel.ui'
 import { CoffeeCardMenu, CoffeeView } from '@/entities/coffee'
 
 import bg from '@/shared/assets/images/brown-line.png'
 import { HeaderImage } from '@/shared/ui/header-image/header-image.ui'
 
-import { CategoryCoffeeMenu } from './filters.ui'
 import styles from './menu.module.scss'
 import { MenuPaginate } from './paginate.ui'
 import { MenuTopBar } from './top-bar.ui'
@@ -56,7 +56,7 @@ export const Menu: FC<TypeMenu> = ({ data, pagination, category, coffee }) => {
         </div>
       )}
       <MenuTopBar />
-      <CategoryCoffeeMenu category={category} />
+      <CategoryCarousel category={category} />
       <div className={styles.cards}>
         {data.length > 0 ? (
           data?.map(item => <CoffeeCardMenu coffee={item} key={item.id} />)

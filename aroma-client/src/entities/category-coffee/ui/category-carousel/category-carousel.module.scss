@@ -1,0 +1,50 @@
+.filtersContainer {
+  @apply max-w-[1000px] mx-auto relative;
+  overflow: hidden;
+}
+
+.filters {
+  @apply text-brown flex gap-[10px] overflow-x-auto overflow-y-hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  user-select: none;
+
+  &.grabbing {
+    cursor: grabbing;
+
+    > a {
+      pointer-events: none;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > a {
+    @apply shadow-none bg-brown text-beige text-nowrap;
+    transition: all 0.2s ease;
+    scroll-snap-align: start;
+
+    &:hover {
+      @apply bg-orange;
+    }
+  }
+
+  .active {
+    @apply bg-orange;
+  }
+}
+
+.dragIndicator {
+  @apply fixed top-2/3 left-1/2 bg-brown text-beige py-[8px] px-[15px] rounded-default z-2 opacity-0 transition-opacity;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+  &.visible {
+    @apply opacity-100;
+  }
+}

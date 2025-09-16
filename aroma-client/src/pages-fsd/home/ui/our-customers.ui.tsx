@@ -4,100 +4,7 @@ import { EnumUserRole } from '@/entities/user/model/user.type'
 
 import styles from './home.module.scss'
 
-const Customers: TypeCustomer[] = [
-  {
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    id: 'gafsddsfddfgdfgs',
-    rating: 4.5,
-    text: '"This coffee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t cofee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t cofee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t cofee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t complete  without it. Highly recommend!"',
-    creator: {
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      id: 'gdfafsddhjksdfgdfgs',
-      email: 'dsf',
-      role: EnumUserRole.user,
-      username: 'dfuser',
-      avatarUrl: '/test/tt.jpg'
-    }
-  },
-  {
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    id: 'gafsdhkjgfddsdfgdfgs',
-    rating: 4.5,
-    text: '"This coffee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t complete  without it. Highly recommend!"',
-    creator: {
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      id: 'gdfafsddfdsdfgdfgs',
-      email: 'dsf',
-      role: EnumUserRole.user,
-      username: 'user'
-    }
-  },
-  {
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    id: 'gafsddsdfgfghkjddfgs',
-    rating: 4.5,
-    text: '"This coffee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t complete  without it. Highly recommend!"',
-    creator: {
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      id: 'gdfafsddfdsdfgdfgs',
-      email: 'dsf',
-      role: EnumUserRole.user,
-      username: 'hgghuser'
-    }
-  },
-  {
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    id: 'gafsfdddsdghkjfgdfgs',
-    rating: 4.5,
-    text: '"This coffee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t complete  without it. Highly recommend!"',
-    creator: {
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      id: 'gdfafsrtyfdddsdfgdfgs',
-      email: 'dsf',
-      role: EnumUserRole.user,
-      username: 'user'
-    }
-  },
-  {
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    id: 'gafsddfdsdfdfgdfgs',
-    rating: 4.5,
-    text: '"This coffee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t complete  without it. Highly recommend!"',
-    creator: {
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      id: 'gdfafsfdddsbnm,dfgdfgs',
-      email: 'dsf',
-      role: EnumUserRole.user,
-      username: 'user',
-      avatarUrl: '/test/image.jpg'
-    }
-  },
-  {
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    id: 'gafsdfddsdfgbnmdfgs',
-    rating: 4.5,
-    text: '"This coffee is absolutely amazing! Rich, smooth, and perfectly  balanced with hints of chocolate and nuts. My morning isn’t complete  without it. Highly recommend!"',
-    creator: {
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      id: 'gdfafdfrtsddsdfgdfgs',
-      email: 'dsf',
-      role: EnumUserRole.user,
-      username: 'user'
-    }
-  }
-]
+const Customers: TypeCustomer[] = []
 
 export const OurCustomers = () => {
   return (
@@ -111,6 +18,10 @@ export const OurCustomers = () => {
       <div>
         {Customers &&
           Customers.map(item => <CustomerCard customer={item} key={item.id} />)}
+
+        {Customers.length == 0 && (
+          <div className={styles.notFound}>Customers not found</div>
+        )}
       </div>
     </div>
   )

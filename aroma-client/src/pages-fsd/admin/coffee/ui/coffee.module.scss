@@ -1,0 +1,19 @@
+.root {
+  @apply flex flex-col;
+
+  .header {
+    @apply flex w-full justify-between;
+
+    > h2 {
+      @apply text-5xl font-bold;
+    }
+
+    > button {
+      @apply bg-brown text-beige;
+
+      &:hover {
+        @apply bg-orange;
+      }
+    }
+  }
+}

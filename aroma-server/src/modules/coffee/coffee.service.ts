@@ -7,6 +7,7 @@ import { PrismaService } from 'src/core/db/prisma.service'
 import { CreateCoffeeDto } from './dto/create-coffee.dto'
 import { CategoryCoffeeService } from '../category-coffee/category-coffee.service'
 import { PaginationCoffeeDto } from './dto/paginated-coffee.dto'
+import { CoffeeQueryBuilder } from './utils/coffee.builder'
 
 @Injectable()
 export class CoffeeService {
@@ -116,65 +117,20 @@ export class CoffeeService {
   }
 
   async getAll(query: PaginationCoffeeDto) {
-    const { page = 1, limit = 6, search, category } = query
+    const builder = new CoffeeQueryBuilder(this.prisma)
+      .setSearch(query.search)
+      .setCategory(query.category)
+      .setAvailableOnly(true)
 
-    const skip = (page - 1) * limit
-    const take = +limit
+    return builder.executePagination(query.page, query.limit)
+  }
 
-    const where: any = {}
+  async getAllAdmin(query: PaginationCoffeeDto) {
+    const builder = new CoffeeQueryBuilder(this.prisma)
+      .setSearch(query.search)
+      .setCategory(query.category)
+      .setAvailableOnly(false)
 
-    if (category) {
-      where.categoryCoffee = {
-        slug: category,
-      }
-    }
-
-    if (search) {
-      where.OR = [
-        {
-          name: {
-            contains: search,
-            mode: 'insensitive' as const,
-          },
-        },
-        {
-          description: {
-            contains: search,
-            mode: 'insensitive' as const,
-          },
-        },
-      ]
-    }
-
-    const [coffees, total] = await Promise.all([
-      this.prisma.coffee.findMany({
-        where: { isAvailable: true, ...where },
-        skip,
-        take,
-        include: {
-          categoryCoffee: true,
-        },
-        orderBy: {
-          createdAt: 'desc',
-        },
-      }),
-      this.prisma.coffee.count({ where }),
-    ])
-
-    const totalPages = Math.ceil(total / limit)
-    const hasNext = page < totalPages
-    const hasPrev = page > 1
-
-    return {
-      data: coffees,
-      pagination: {
-        page: Number(page),
-        limit: Number(limit),
-        total,
-        totalPages,
-        hasNext,
-        hasPrev,
-      },
-    }
+    return builder.executePagination(query.page, query.limit)
   }
 }

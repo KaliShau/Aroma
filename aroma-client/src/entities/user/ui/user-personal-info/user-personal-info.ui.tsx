@@ -8,8 +8,8 @@ import { Link } from '@/shared/ui/link/link.ui'
 import { formatDate } from '@/shared/utils/date.utils'
 
 import { TypeUser } from '../../model/user.type'
-import { UserPersonalInfoUpdateModal } from './update.ui'
 import styles from './user-personal-info.module.scss'
+import { UserPersonalInfoUpdateModal } from './user-update.ui'
 
 type TypeUserPersonalInfo = {
   user: TypeUser
@@ -62,7 +62,12 @@ export const UserPersonalInfo: FC<TypeUserPersonalInfo> = ({ user }) => {
         })}
         onClick={() => setShowUpdateModal(false)}
       />
-      {showUpdateModal && <UserPersonalInfoUpdateModal />}
+      {showUpdateModal && (
+        <UserPersonalInfoUpdateModal
+          user={user}
+          setShowUpdateModal={setShowUpdateModal}
+        />
+      )}
     </div>
   )
 }

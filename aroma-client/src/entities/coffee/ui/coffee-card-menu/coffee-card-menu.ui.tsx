@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { FC } from 'react'
 
 import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
@@ -16,7 +16,7 @@ export const CoffeeCardMenu: FC<CoffeeCartMenu> = ({ coffee }) => {
   const searchParams = useSearchParams()
 
   const createPageUrl = (slug: string) => {
-    const params = new URLSearchParams(searchParams.toString())
+    const params = new URLSearchParams(searchParams)
     params.set('coffee', slug)
     return `${PUBLIC_ROUTES.menu()}?${params.toString()}`
   }

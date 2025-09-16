@@ -18,9 +18,17 @@ import { PaginationCoffeeDto } from './dto/paginated-coffee.dto'
 export class CoffeeController {
   constructor(private readonly coffeeService: CoffeeService) {}
 
+  @UsePipes(new ValidationPipe())
   @Get()
-  async getAll(@Query(ValidationPipe) paginationDto: PaginationCoffeeDto) {
+  async getAll(@Query() paginationDto: PaginationCoffeeDto) {
     return this.coffeeService.getAll(paginationDto)
+  }
+
+  @UsePipes(new ValidationPipe())
+  @Auth('admin')
+  @Get('admin')
+  async getAllAdmin(@Query() paginationDto: PaginationCoffeeDto) {
+    return this.coffeeService.getAllAdmin(paginationDto)
   }
 
   @Get('random')

@@ -8,6 +8,7 @@ export const API_ENDPOINTS = {
 
   profile: () => API_ENDPOINTS.root('/user/profile'),
   updateAvatar: () => API_ENDPOINTS.root('/user/update-avatar'),
+  updateUser: () => API_ENDPOINTS.root('/user/update-profile'),
 
   getCoffeeRandom: () => API_ENDPOINTS.root('/coffee/random'),
   getCoffeeAll: (

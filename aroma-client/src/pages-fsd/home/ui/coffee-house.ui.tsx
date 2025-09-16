@@ -6,7 +6,7 @@ import styles from './home.module.scss'
 
 export const CoffeeHouseHome = () => {
   return (
-    <div className={styles.coffee_house}>
+    <div className={styles.coffeeHouse}>
       <div>
         <h3>Welcome to Aroma Coffee House</h3>
         <p>
@@ -17,7 +17,7 @@ export const CoffeeHouseHome = () => {
           with precision and care.
         </p>
       </div>
-      <Image src={img.src} alt='Image' width={654} height={1} />
+      <Image src={img.src} alt='Image' width={654} height={839} />
     </div>
   )
 }

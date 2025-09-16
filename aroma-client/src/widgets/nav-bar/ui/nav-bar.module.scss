@@ -36,3 +36,11 @@
 .bgColor {
   @apply bg-white bg-opacity-15;
 }
+
+.admin {
+  @apply fixed bottom-4 left-4 p-2 px-4 rounded-default font-bold transition-all;
+
+  &:hover {
+    @apply bg-orange;
+  }
+}

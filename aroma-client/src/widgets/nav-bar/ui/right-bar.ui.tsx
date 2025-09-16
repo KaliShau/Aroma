@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useRef, useState } from 'react'
 
 import { Cart } from '@/widgets/cart'
@@ -5,9 +6,12 @@ import { UserMenu } from '@/widgets/user-menu'
 
 import { useProfile } from '@/features/user'
 
+import { EnumUserRole } from '@/entities/user'
+
 import CartSvg from '@/shared/assets/icons/cart.svg'
 import Circle from '@/shared/assets/icons/circle.svg'
-import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
+import icon from '@/shared/assets/icons/dashboard.png'
+import { ADMIN_ROUTES, PUBLIC_ROUTES } from '@/shared/configs/routes.config'
 import { Avatar } from '@/shared/ui/avatar/avatar.ui'
 import { EnumModelLink } from '@/shared/ui/link/link.type'
 import { Link } from '@/shared/ui/link/link.ui'
@@ -48,6 +52,15 @@ export const RightBar = () => {
         buttonRef={buttonRef}
       />
       <Cart isShowCart={isShowCart} setIsShowCart={setIsShowCart} />
+      {data?.role == EnumUserRole.admin && (
+        <Link
+          className={styles.admin}
+          href={ADMIN_ROUTES.dashboard()}
+          model={EnumModelLink.fill}
+        >
+          Dashboard <Image src={icon} width={50} height={50} alt='Dashboard' />
+        </Link>
+      )}
     </div>
   )
 }

@@ -16,6 +16,7 @@ export const HeaderImage = ({ image, isSvg = false }: TypeHeaderImage) => {
         src={image.src}
         width='1456'
         height='1'
+        priority
       />
     )
   }

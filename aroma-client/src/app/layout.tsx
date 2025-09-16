@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import { ReactNode } from 'react'
 
-import { Layout } from '@/widgets/layout'
-
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/shared/constants/seo.constant'
 
 import { MainProvider } from './providers/main.provider'
@@ -11,7 +9,8 @@ import './styles/globals.scss'
 
 const font = Montserrat({
   variable: '--font',
-  subsets: ['latin', 'latin-ext']
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap'
 })
 
 export const metadata: Metadata = {
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION
 }
 
-const RootLayout = ({ children }: { children: ReactNode }) => {
+const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang='en'>
       <head>
@@ -48,12 +47,10 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         <meta name='theme-color' content='#ffffff' />
       </head>
       <body className={font.variable}>
-        <MainProvider>
-          <Layout>{children}</Layout>
-        </MainProvider>
+        <MainProvider>{children}</MainProvider>
       </body>
     </html>
   )
 }
 
-export default RootLayout
+export default MainLayout

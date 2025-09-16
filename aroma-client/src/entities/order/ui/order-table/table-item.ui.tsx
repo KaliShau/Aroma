@@ -3,7 +3,6 @@ import { Dispatch, FC, SetStateAction } from 'react'
 import toast from 'react-hot-toast'
 
 import { PRIVATE_ROUTES } from '@/shared/configs/routes.config'
-import { Link } from '@/shared/ui/link/link.ui'
 import { Status } from '@/shared/ui/status/status.ui'
 import { formatDate } from '@/shared/utils/date.utils'
 import { truncateUUID } from '@/shared/utils/truncateUUID.utils'

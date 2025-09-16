@@ -3,11 +3,12 @@
 import { useSearchParams } from 'next/navigation'
 import { FC } from 'react'
 
+import { TypePaginateAllCoffees } from '@/features/coffee'
+
 import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
 import { cn } from '@/shared/lib/cn'
 import { Link } from '@/shared/ui/link/link.ui'
 
-import { TypePaginateAllCoffees } from '../model/paginate.type'
 import styles from './menu.module.scss'
 
 type TypeMenuPaginate = Pick<TypePaginateAllCoffees, 'pagination'>
@@ -16,7 +17,7 @@ export const MenuPaginate: FC<TypeMenuPaginate> = ({ pagination }) => {
   const searchParams = useSearchParams()
 
   const createPageUrl = (page: number) => {
-    const params = new URLSearchParams(searchParams.toString())
+    const params = new URLSearchParams(searchParams)
     params.set('page', page.toString())
     return `${PUBLIC_ROUTES.menu()}?${params.toString()}`
   }

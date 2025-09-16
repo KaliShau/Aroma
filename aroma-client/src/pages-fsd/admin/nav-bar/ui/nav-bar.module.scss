@@ -1,0 +1,31 @@
+.root {
+  @apply bg-beige rounded-default max-w-[300px] w-full text-brown p-[25px] h-full flex flex-col justify-between;
+
+  .header {
+    @apply flex font-bold text-2xl w-full justify-center py-[25px] border-b border-brown/60 gap-[10px] items-center;
+
+    > img {
+      @apply w-[54px] h-[54px];
+    }
+  }
+
+  > a {
+    @apply bg-brown text-beige !important;
+
+    path {
+      @apply stroke-beige;
+    }
+
+    &:hover {
+      @apply bg-orange !important;
+    }
+  }
+}
+
+.links {
+  @apply flex flex-col gap-[10px] pt-[60px];
+
+  > a {
+    @apply shadow-none;
+  }
+}

@@ -1,0 +1,21 @@
+meta {
+  name: get all admin
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{api}}/coffee/admin?page=1&search&category
+  body: none
+  auth: inherit
+}
+
+params:query {
+  page: 1
+  search: 
+  category: 
+}
+
+settings {
+  encodeUrl: true
+}

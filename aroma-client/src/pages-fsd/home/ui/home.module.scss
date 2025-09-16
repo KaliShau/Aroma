@@ -20,7 +20,7 @@
   }
 }
 
-.coffee_house {
+.coffeeHouse {
   @apply pt-[1vw] flex justify-between h-full;
 
   > div {
@@ -62,4 +62,8 @@
   > button {
     @apply bg-white;
   }
+}
+
+.notFound {
+  @apply font-bold text-2xl bg-white/40 py-[10px] px-[30px] rounded-default;
 }

@@ -1,6 +1,6 @@
 import { Metadata, NextPage } from 'next'
 
-import { Menu } from '@/pages-fsd/coffee/menu'
+import { Menu } from '@/pages-fsd/coffee-menu'
 
 import { CategoryCoffee } from '@/features/category-coffee'
 import { CoffeeService } from '@/features/coffee'

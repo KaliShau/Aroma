@@ -47,10 +47,28 @@
 }
 
 .modal {
-  @apply bg-white text-brown fixed top-1/2 left-1/2 z-2 rounded-default p-[25px];
+  @apply bg-white text-brown fixed top-1/2 left-1/2 z-2 rounded-default p-[25px] flex flex-col items-center gap-[20px];
   transform: translate(-50%, -50%);
 
   > h3 {
-    @apply text-xl font-bold text-orange border-b border-brown/40 py-[12px];
+    @apply text-xl font-bold text-orange border-b border-brown/40 py-[12px] w-full text-center;
+  }
+
+  > div {
+    @apply flex gap-[20px];
+
+    > div {
+      @apply w-[307px] font-bold;
+    }
+  }
+
+  > button {
+    @apply bg-brown text-beige px-[60px];
+
+    > svg {
+      circle {
+        @apply stroke-beige;
+      }
+    }
   }
 }

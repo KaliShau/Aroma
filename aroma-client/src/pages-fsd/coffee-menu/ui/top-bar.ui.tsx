@@ -21,7 +21,7 @@ export const MenuTopBar = () => {
   const router = useRouter()
 
   const onSubmit: SubmitHandler<TypeSearchTerm> = data => {
-    const params = new URLSearchParams(searchParams.toString())
+    const params = new URLSearchParams(searchParams)
 
     if (data.searchTerm.trim()) {
       params.set('search', data.searchTerm.trim())
