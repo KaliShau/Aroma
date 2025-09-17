@@ -1,10 +1,10 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
+import { FC } from 'react'
 
 import { TypeCategoryCoffee } from '@/entities/category-coffee'
 
-import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
 import { cn } from '@/shared/lib/cn'
 import { EnumModelLink } from '@/shared/ui/link/link.type'
 import { Link } from '@/shared/ui/link/link.ui'
@@ -12,10 +12,16 @@ import { Link } from '@/shared/ui/link/link.ui'
 import { useCategoryCarouselGrab } from '../../hooks/carousel-grab.hook'
 import styles from './category-carousel.module.scss'
 
-export const CategoryCarousel = ({
-  category
-}: {
+type TypeCategoryCarousel = {
   category: TypeCategoryCoffee[]
+  routes: () => string
+  isReturnOnePage?: boolean
+}
+
+export const CategoryCarousel: FC<TypeCategoryCarousel> = ({
+  category,
+  routes,
+  isReturnOnePage = true
 }) => {
   const searchParams = useSearchParams()
   const currentCategory = searchParams.get('category')
@@ -38,9 +44,10 @@ export const CategoryCarousel = ({
     } else {
       params.set('category', slug)
     }
-    params.set('page', '1')
 
-    return `${PUBLIC_ROUTES.menu()}?${params.toString()}`
+    if (isReturnOnePage) params.set('page', '1')
+
+    return `${routes()}?${params.toString()}`
   }
 
   if (!category || category.length === 0) {

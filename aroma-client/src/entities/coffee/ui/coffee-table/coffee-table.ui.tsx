@@ -10,31 +10,39 @@ import {
   TableNotFound
 } from '@/widgets/table'
 
-import { TypeOrderWithCountItems } from '../../model/order.type'
-import styles from './order-table.module.scss'
-import { OrderTableItem } from './table-item.ui'
+import { TypeCoffee } from '../../model/coffee.type'
+import { CoffeeTableItem } from './coffee-item.ui'
+import styles from './coffee-table.module.scss'
 
-type TypeOrderTable = {
-  data: TypeOrderWithCountItems[]
+type TypeCoffeeTable = {
+  data: TypeCoffee[]
   fetchNextPage: (options?: FetchNextPageOptions) => void
   hasNextPage: boolean
   isLoading: boolean
 }
 
-const HEADER = ['OrderId', 'Date', 'Status', 'PaymentId', 'Total', 'Items']
+const HEADER = [
+  'Image',
+  'Id',
+  'Created at',
+  'Name',
+  'Price',
+  'IsAvailable',
+  'Action'
+]
 
-export const OrderTable: FC<TypeOrderTable> = ({
+export const CoffeeTable: FC<TypeCoffeeTable> = ({
   data,
   fetchNextPage,
   hasNextPage,
   isLoading
 }) => {
   return (
-    <TableLayout>
+    <TableLayout className={styles.root}>
       <TableHeader data={HEADER} className={styles.header} />
       <TableBody>
         {data.map(item => (
-          <OrderTableItem item={item} key={item.id} />
+          <CoffeeTableItem item={item} key={item.id} />
         ))}
         <TableLoading isLoading={isLoading} colSpan={HEADER.length} />
         <TableFetchPage

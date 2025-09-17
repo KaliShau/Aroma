@@ -1,0 +1,25 @@
+.item {
+  .name {
+    @apply text-orange font-extrabold;
+  }
+}
+
+.root {
+  @apply h-full max-h-[121px];
+}
+
+.header {
+  @apply max-h-[70px] rounded-none bg-brown/20;
+}
+
+.image {
+  @apply flex justify-center items-center;
+}
+
+.dropDownButton {
+  @apply p-4 px-8 transition-all rounded-default;
+
+  &:hover {
+    @apply bg-orange;
+  }
+}

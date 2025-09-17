@@ -24,16 +24,21 @@ export const MyOrdersHeader = () => {
   const isLoading = orderLoading || orderItemLoading
   const isError = orderError || orderItemError
 
+  if (isError) {
+    toast.error('Failed to load order statistics!')
+  }
+
   return (
     <div className={styles.header}>
       <HeaderImage image={bg} />
       <div>
         <h2>My Orders</h2>
         <div className={styles.stats}>
-          {isError ? (
-            toast.error('Failed to load order statistics!')
-          ) : isLoading ? (
-            <div>Loading...</div>
+          {isLoading ? (
+            <>
+              <Item title='Loading...' count={0} />
+              <Item title='Loading...' count={0} />
+            </>
           ) : (
             <>
               <Item title='Total Orders' count={order?.count || 0} />

@@ -1,5 +1,5 @@
 .root {
-  @apply flex flex-col;
+  @apply flex flex-col relative;
 
   .header {
     @apply flex w-full justify-between;
@@ -16,4 +16,36 @@
       }
     }
   }
+
+  .headerTable {
+    @apply w-full flex justify-between bg-white/80 p-[25px] rounded-t-default items-center;
+
+    > form {
+      @apply flex gap-[30px] font-bold px-2 items-center;
+
+      > div {
+        @apply flex items-center flex-col justify-center !important;
+      }
+
+      > button {
+        @apply bg-brown text-beige;
+
+        &:hover {
+          @apply bg-orange;
+        }
+      }
+    }
+
+    > div {
+      @apply max-w-[950px] mx-0;
+    }
+  }
+
+  .table {
+    @apply overflow-y-auto rounded-default;
+  }
+}
+
+.wrapper {
+  @apply absolute bg-white/30 w-full h-full  top-0 left-0  rounded-default  z-1 flex justify-center;
 }

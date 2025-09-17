@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { cn } from '@/shared/lib/cn'
 import { EnumModelLink } from '@/shared/ui/link/link.type'
@@ -16,7 +16,21 @@ type TypeUserPersonalInfo = {
 }
 
 export const UserPersonalInfo: FC<TypeUserPersonalInfo> = ({ user }) => {
-  const [showUpdateModal, setShowUpdateModal] = useState<boolean>(false)
+  const [isShowUpdateModal, setShowUpdateModal] = useState<boolean>(false)
+
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isShowUpdateModal) {
+        setShowUpdateModal(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleEscKey)
+
+    return () => {
+      window.removeEventListener('keydown', handleEscKey)
+    }
+  }, [isShowUpdateModal, setShowUpdateModal])
 
   return (
     <div className={styles.root}>
@@ -58,11 +72,11 @@ export const UserPersonalInfo: FC<TypeUserPersonalInfo> = ({ user }) => {
       </div>
       <div
         className={cn(styles.overlay, {
-          [styles.overlayShow]: showUpdateModal
+          [styles.overlayShow]: isShowUpdateModal
         })}
         onClick={() => setShowUpdateModal(false)}
       />
-      {showUpdateModal && (
+      {isShowUpdateModal && (
         <UserPersonalInfoUpdateModal
           user={user}
           setShowUpdateModal={setShowUpdateModal}

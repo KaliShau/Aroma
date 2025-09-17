@@ -5,18 +5,6 @@
     @apply font-bold text-5xl max-w-[700px] text-center;
     letter-spacing: 5%;
   }
-
-  form {
-    @apply font-bold flex gap-[10px] items-center;
-
-    svg {
-      @apply h-[21px] w-[24px];
-    }
-
-    > button {
-      @apply shadow-none bg-brown text-beige;
-    }
-  }
 }
 
 .notFound {

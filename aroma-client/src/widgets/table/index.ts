@@ -1,0 +1,6 @@
+export { TableFetchPage } from './ui/table-fetch-page.ui'
+export { TableHeader } from './ui/table-header.ui'
+export { TableLoading } from './ui/table-loading.ui'
+export { TableNotFound } from './ui/table-not-found.ui'
+export { TableBody } from './ui/table-body.ui'
+export { TableLayout } from './ui/table-layout.ui'

@@ -14,13 +14,15 @@ type CoffeeCartMenu = {
   addItem: ActionCreatorWithPayload<TypeCartItem>
   updateQuantity: ActionCreatorWithPayload<TypeCartItem>
   removeItem: ActionCreatorWithPayload<string>
+  isSimilar?: boolean
 }
 
 export const CoffeeView: FC<CoffeeCartMenu> = ({
   coffee,
   addItem,
   removeItem,
-  updateQuantity
+  updateQuantity,
+  isSimilar = true
 }) => {
   const ref = useRef<HTMLDivElement | null>(null)
   const router = useRouter()
@@ -42,6 +44,21 @@ export const CoffeeView: FC<CoffeeCartMenu> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [router])
 
+  useEffect(() => {
+    const handleClickOutside = (event: KeyboardEvent) => {
+      if (
+        ref.current &&
+        !ref.current.contains(event.target as Node) &&
+        event.key === 'Escape'
+      ) {
+        onClose()
+      }
+    }
+
+    document.addEventListener('keydown', handleClickOutside)
+    return () => document.removeEventListener('keydown', handleClickOutside)
+  }, [router])
+
   return (
     <div className={styles.root} ref={ref}>
       <CoffeeViewTopBar
@@ -51,7 +68,7 @@ export const CoffeeView: FC<CoffeeCartMenu> = ({
         removeItem={removeItem}
         updateQuantity={updateQuantity}
       />
-      <CoffeeSimilar category={coffee.categoryCoffee.slug} />
+      {isSimilar && <CoffeeSimilar category={coffee.categoryCoffee.slug} />}
     </div>
   )
 }

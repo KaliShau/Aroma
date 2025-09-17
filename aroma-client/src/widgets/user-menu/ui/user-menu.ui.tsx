@@ -1,4 +1,4 @@
-import { Dispatch, FC, RefObject, SetStateAction } from 'react'
+import { Dispatch, FC, RefObject, SetStateAction, useEffect } from 'react'
 
 import { useProfile } from '@/features/user'
 
@@ -29,6 +29,20 @@ export const UserMenu: FC<TypeUserMenu> = ({
 }) => {
   const { ref } = useUserMenu({ setIsShowMenu, buttonRef })
   const { isAuth, data } = useProfile()
+
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isShowMenu) {
+        setIsShowMenu(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleEscKey)
+
+    return () => {
+      window.removeEventListener('keydown', handleEscKey)
+    }
+  }, [isShowMenu, setIsShowMenu])
 
   return (
     <div

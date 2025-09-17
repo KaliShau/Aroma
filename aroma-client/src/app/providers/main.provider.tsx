@@ -11,15 +11,13 @@ import { ToasterProvider } from './toaster.provider'
 
 export const MainProvider = ({ children }: { children: ReactNode }) => {
   return (
-    <>
-      <Provider store={store}>
-        <PersistProvider>
-          <QueryProvider>
-            <ToasterProvider />
-            <AuthProvider>{children}</AuthProvider>
-          </QueryProvider>
-        </PersistProvider>
-      </Provider>
-    </>
+    <Provider store={store}>
+      <PersistProvider>
+        <QueryProvider>
+          <ToasterProvider />
+          <AuthProvider>{children}</AuthProvider>
+        </QueryProvider>
+      </PersistProvider>
+    </Provider>
   )
 }

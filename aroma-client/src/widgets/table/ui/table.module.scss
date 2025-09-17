@@ -1,0 +1,67 @@
+.header {
+  @apply bg-white;
+}
+
+.loading {
+  @apply transition-colors border-b border-brown/40 cursor-pointer w-full;
+
+  &:hover {
+    @apply bg-white/70;
+  }
+
+  > td {
+    @apply w-full !important;
+  }
+}
+
+.bold {
+  @apply font-bold;
+}
+
+.body {
+  tr {
+    @apply transition-colors border-b border-brown/40 cursor-pointer;
+
+    &:hover {
+      @apply bg-white/70;
+    }
+
+    &:last-child {
+      @apply border-none;
+    }
+  }
+}
+
+.layout {
+  @apply bg-white/60 w-full h-full text-xl relative;
+
+  th {
+    @apply px-[25px] py-[25px] text-center font-semibold;
+  }
+
+  td {
+    @apply px-[25px] py-[10px] text-center font-semibold items-center;
+  }
+
+  .id {
+    @apply cursor-help relative decoration-dotted underline;
+  }
+}
+
+.fetch {
+  > td {
+    @apply p-0;
+  }
+
+  button {
+    @apply w-full py-[15px];
+  }
+}
+
+.notFound {
+  @apply w-full;
+
+  td {
+    @apply w-full;
+  }
+}

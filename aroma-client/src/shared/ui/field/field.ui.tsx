@@ -15,7 +15,7 @@ export const Field: FC<TypeField> = ({
 }) => {
   return (
     <div className={cn(styles.root, className)}>
-      <span>{label}</span>
+      {label && <span>{label}</span>}
       <div className={cn({ [styles.errorInput]: !!error })}>
         {Icon && <Icon />}
         <input type='text' placeholder={placeholder} {...rest} />

@@ -11,11 +11,7 @@ export const metadata: Metadata = {
 }
 
 const AdminLayout = ({ children }: { children: ReactNode }) => {
-  return (
-    <>
-      <AdminL>{children}</AdminL>
-    </>
-  )
+  return <AdminL>{children}</AdminL>
 }
 
 export default AdminLayout

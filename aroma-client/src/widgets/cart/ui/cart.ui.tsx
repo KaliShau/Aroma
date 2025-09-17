@@ -28,6 +28,20 @@ export const Cart: FC<TypeCart> = ({ isShowCart, setIsShowCart }) => {
     setIsShowCart(false)
   }
 
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isShowCart) {
+        setIsShowCart(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleEscKey)
+
+    return () => {
+      window.removeEventListener('keydown', handleEscKey)
+    }
+  }, [isShowCart, setIsShowCart])
+
   return (
     <>
       <div

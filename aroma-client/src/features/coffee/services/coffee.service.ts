@@ -1,6 +1,6 @@
 import { TypeCoffee } from '@/entities/coffee'
 
-import { axiosClassic } from '@/shared/api/axios.interceptors'
+import { axiosClassic, axiosWithAuth } from '@/shared/api/axios.interceptors'
 import { API_ENDPOINTS } from '@/shared/configs/api.config'
 
 import { TypePaginateAllCoffees } from '../model/paginate.type'
@@ -32,6 +32,18 @@ export const CoffeeService = {
 
     return response.data
   },
+
+  getAllAdmin: async (
+    page: number,
+    category?: string,
+    search?: string,
+    limit?: string
+  ): Promise<TypePaginateAllCoffees> =>
+    (
+      await axiosWithAuth.get(
+        API_ENDPOINTS.getCoffeeAllAdmin(page, category, search, limit)
+      )
+    ).data,
 
   getBySlug: async (slug: string): Promise<TypeCoffee> =>
     (await axiosClassic.get(API_ENDPOINTS.getCoffeeBySlug(slug))).data,

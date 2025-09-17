@@ -1,0 +1,20 @@
+.tooltip {
+  @apply bg-brown text-white px-3 py-2 rounded-md text-sm fixed z-2 whitespace-nowrap;
+  font-family: monospace;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.tooltipArrow {
+  @apply absolute -bottom-1 left-1/2 translate-x-1/2 w-0 h-0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-90%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-100%);
+  }
+}

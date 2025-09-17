@@ -12,6 +12,7 @@ import { CategoryCarousel } from '@/entities/category-coffee/ui/category-carouse
 import { CoffeeCardMenu, CoffeeView } from '@/entities/coffee'
 
 import bg from '@/shared/assets/images/brown-line.png'
+import { PUBLIC_ROUTES } from '@/shared/configs/routes.config'
 import { HeaderImage } from '@/shared/ui/header-image/header-image.ui'
 
 import styles from './menu.module.scss'
@@ -56,7 +57,7 @@ export const Menu: FC<TypeMenu> = ({ data, pagination, category, coffee }) => {
         </div>
       )}
       <MenuTopBar />
-      <CategoryCarousel category={category} />
+      <CategoryCarousel category={category} routes={PUBLIC_ROUTES.menu} />
       <div className={styles.cards}>
         {data.length > 0 ? (
           data?.map(item => <CoffeeCardMenu coffee={item} key={item.id} />)

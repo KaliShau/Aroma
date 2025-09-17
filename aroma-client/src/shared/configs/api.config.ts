@@ -20,6 +20,15 @@ export const API_ENDPOINTS = {
     API_ENDPOINTS.root(
       `/coffee?page=${page}&category=${category}&search=${search}&limit=${limit}`
     ),
+  getCoffeeAllAdmin: (
+    page: number,
+    category?: string,
+    search?: string,
+    limit: string = '6'
+  ) =>
+    API_ENDPOINTS.root(
+      `/coffee/admin?page=${page}&category=${category}&search=${search}&limit=${limit}`
+    ),
   getCoffeeBySlug: (slug: string) => API_ENDPOINTS.root(`/coffee/${slug}`),
   getCoffeeById: (id: string) => API_ENDPOINTS.root(`/coffee/id/${id}`),
   getCoffeeByIds: () => API_ENDPOINTS.root(`/coffee/by-ids`),
