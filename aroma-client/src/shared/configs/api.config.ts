@@ -30,6 +30,8 @@ export const API_ENDPOINTS = {
       `/coffee/admin?page=${page}&category=${category}&search=${search}&limit=${limit}`
     ),
   getCoffeeBySlug: (slug: string) => API_ENDPOINTS.root(`/coffee/${slug}`),
+  getCoffeeBySlugAdmin: (slug: string) =>
+    API_ENDPOINTS.root(`/coffee/admin/${slug}`),
   getCoffeeById: (id: string) => API_ENDPOINTS.root(`/coffee/id/${id}`),
   getCoffeeByIds: () => API_ENDPOINTS.root(`/coffee/by-ids`),
 

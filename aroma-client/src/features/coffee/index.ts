@@ -1,5 +1,6 @@
 export { CoffeeService } from './services/coffee.service'
 export { useCoffeeBySlug } from './hooks/coffee-by-slug.hook'
+export { useCoffeeBySlugAdmin } from './hooks/coffee-by-slug-admin.hook'
 export { useCoffeeRandom } from './hooks/coffee-random.hook'
 export { useCoffeeAll } from './hooks/coffee-all.hook'
 export { useCoffeeById } from './hooks/coffee-by-id.hook'

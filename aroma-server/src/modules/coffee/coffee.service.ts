@@ -8,6 +8,8 @@ import { CreateCoffeeDto } from './dto/create-coffee.dto'
 import { CategoryCoffeeService } from '../category-coffee/category-coffee.service'
 import { PaginationCoffeeDto } from './dto/paginated-coffee.dto'
 import { CoffeeQueryBuilder } from './utils/coffee.builder'
+import { UpdateCoffeeDto } from './dto/update-coffee.dto'
+import { EnumUserRole } from '@prisma/client'
 
 @Injectable()
 export class CoffeeService {
@@ -56,9 +58,9 @@ export class CoffeeService {
     return coffee
   }
 
-  async getBySlug(slug: string) {
+  async getBySlug(slug: string, isAdmin: boolean = false) {
     const coffee = await this.prisma.coffee.findUnique({
-      where: { slug, isAvailable: true },
+      where: { slug, ...(!isAdmin && { isAvailable: true }) },
       include: {
         categoryCoffee: true,
       },
@@ -69,7 +71,34 @@ export class CoffeeService {
     return coffee
   }
 
-  async update() {}
+  async getBySlugAdmin(slug: string, role: EnumUserRole) {
+    const isAdmin = role === EnumUserRole.admin
+
+    return this.getBySlug(slug, isAdmin)
+  }
+
+  async update(id: string, dto: UpdateCoffeeDto) {
+    const coffee = await this.prisma.coffee.findUnique({ where: { id } })
+
+    if (!coffee) throw new NotFoundException('Coffee not found!')
+
+    await this.prisma.coffee.update({ where: { id }, data: { ...dto } })
+
+    return { message: 'Coffee is successfully update!' }
+  }
+
+  async updateAvailable(id: string) {
+    const coffee = await this.prisma.coffee.findUnique({ where: { id } })
+
+    if (!coffee) throw new NotFoundException('Coffee not found!')
+
+    await this.prisma.coffee.update({
+      where: { id },
+      data: { isAvailable: !coffee.isAvailable },
+    })
+
+    return { message: 'Available coffee is successfully update!' }
+  }
 
   async delete(id: string) {
     await this.getById(id)

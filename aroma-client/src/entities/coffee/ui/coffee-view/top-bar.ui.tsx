@@ -37,6 +37,9 @@ export const CoffeeViewTopBar: FC<TypeCoffeeViewTopBar> = ({
   const currentItem = items.find(value => value.id === coffee.id)
 
   const createCartItem = () => {
+    if (coffee.isAvailable === false)
+      return toast.error('This coffee is not available for purchase!')
+
     if (currentItem && currentItem?.quantity >= 100) {
       return toast.error('You have exceeded the limit!')
     }

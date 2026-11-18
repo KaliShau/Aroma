@@ -48,6 +48,9 @@ export const CoffeeService = {
   getBySlug: async (slug: string): Promise<TypeCoffee> =>
     (await axiosClassic.get(API_ENDPOINTS.getCoffeeBySlug(slug))).data,
 
+  getBySlugAdmin: async (slug: string): Promise<TypeCoffee> =>
+    (await axiosWithAuth.get(API_ENDPOINTS.getCoffeeBySlugAdmin(slug))).data,
+
   getById: async (id: string): Promise<TypeCoffee> =>
     (await axiosClassic.get(API_ENDPOINTS.getCoffeeById(id))).data,
 

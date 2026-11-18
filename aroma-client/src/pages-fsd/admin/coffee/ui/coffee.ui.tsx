@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 
 import { addItem, removeItem, updateQuantity } from '@/widgets/cart'
 
-import { useCoffeeBySlug } from '@/features/coffee'
+import { useCoffeeBySlug, useCoffeeBySlugAdmin } from '@/features/coffee'
 
 import { CoffeeView } from '@/entities/coffee'
 
@@ -20,7 +20,7 @@ export const AdminCoffee = () => {
 
   const coffee = params.get('coffee') || ''
 
-  const { data, isLoading, isError } = useCoffeeBySlug(coffee || '')
+  const { data, isLoading, isError } = useCoffeeBySlugAdmin(coffee || '')
 
   return (
     <AdminPageLayout className={styles.root}>

@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Query,
   UsePipes,
@@ -13,6 +14,9 @@ import { CoffeeService } from './coffee.service'
 import { Auth } from '../auth/decorators/auth.decorator'
 import { CreateCoffeeDto } from './dto/create-coffee.dto'
 import { PaginationCoffeeDto } from './dto/paginated-coffee.dto'
+import { UpdateCoffeeDto } from './dto/update-coffee.dto'
+import { User } from '../auth/decorators/user.decorator'
+import { EnumUserRole, User as UserEntities } from '@prisma/client'
 
 @Controller('coffee')
 export class CoffeeController {
@@ -51,6 +55,28 @@ export class CoffeeController {
   @Get(':slug')
   async getBySlug(@Param('slug') slug: string) {
     return this.coffeeService.getBySlug(slug)
+  }
+
+  @Auth('admin')
+  @Get('admin/:slug')
+  async getBySlugAdmin(
+    @Param('slug') slug: string,
+    @User('role') role: EnumUserRole
+  ) {
+    return this.coffeeService.getBySlugAdmin(slug, role)
+  }
+
+  @UsePipes(new ValidationPipe())
+  @Auth('admin')
+  @Patch(':id')
+  async update(@Param('id') id: string, @Body() dto: UpdateCoffeeDto) {
+    return this.coffeeService.update(id, dto)
+  }
+
+  @Auth('admin')
+  @Patch('available/:id')
+  async updateAvailable(@Param('id') id: string) {
+    return this.coffeeService.updateAvailable(id)
   }
 
   @Get('id/:id')

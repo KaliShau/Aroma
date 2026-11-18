@@ -23,6 +23,9 @@ export const UpdateQuantity: FC<TypeUpdateQuantity> = ({
 }) => {
   const dispatch = useDispatch()
 
+  if (coffee.isAvailable === false)
+    return toast.error('This coffee is not available for purchase!')
+
   const handleButtonClick = (
     e: React.MouseEvent,
     action: 'increment' | 'decrement'
